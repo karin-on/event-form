@@ -3,6 +3,21 @@ import React from "react";
 import employees from "../data/employees";
 
 class Coordinator extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            email: ''
+        }
+    }
+
+    handleChange = (e) => {
+        let id = e.target.value;
+
+        this.setState({
+            email: e.target.value === "default" ? '' : employees[id].email
+        })
+    };
+
     render() {
         let employeesMeOption = <option value={employees[4].id}
                                         key={employees[4].id}>
@@ -29,7 +44,12 @@ class Coordinator extends React.Component {
 
                 <div className="section__row">
                     <label className="label" htmlFor="responsible">Responsible <span>*</span></label>
-                    <select className="input-lg" name="responsible" id="responsible">
+                    <select className="input-lg"
+                            name="responsible"
+                            id="responsible" onChange={e => this.handleChange(e)}>
+                        <option value="default">
+                            Select employee
+                        </option>
                         <optgroup label="Me">
                             {employeesMeOption}
                         </optgroup>
@@ -41,7 +61,7 @@ class Coordinator extends React.Component {
 
                 <div className="section__row">
                     <label className="label" htmlFor="email">Email</label>
-                    <input className="input-lg" type="email" id="email" placeholder="Email"/>
+                    <input className="input-lg" type="email" id="email" placeholder="Email" value={this.state.email}/>
                 </div>
 
             </div>
