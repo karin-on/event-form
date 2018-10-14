@@ -1,8 +1,14 @@
 import React from "react";
 
+import categories from "../data/categories";
 
 class About extends React.Component {
     render() {
+        let categoriesOptions = categories.map(el => {
+            return <option value={el.id} key={el.id}>{el.name}</option>
+        });
+
+
         return <div className="form__section section__about">
             <div className="section__header">
                 <h2 className="section__title">About</h2>
@@ -23,9 +29,10 @@ class About extends React.Component {
                 <div className="section__row">
                     <label className="label" htmlFor="category">Category</label>
                     <select className="input-lg" name="category" id="category">
-                        <option value="">Select category</option>
-                        <option value="">Hiking</option>
-                        <option value="">Cycling</option>
+
+                        <option value="">Select category (skills, interests, locations)</option>
+                        {categoriesOptions}
+
                     </select>
                 </div>
 
