@@ -16,7 +16,7 @@ class About extends React.Component {
                 </div>
 
                 <div className="section__row">
-                    <label className="label" htmlFor="description">Description <span>*</span></label>
+                    <label className="label label__description" htmlFor="description">Description <span>*</span></label>
                     <textarea className="input-lg input-descr" id="description" placeholder="Write about your event, be creative"/>
                 </div>
 
