@@ -10,14 +10,14 @@ class When extends React.Component {
             <div className="section__content">
 
                 <div className="section__row">
-                    <label className="label" htmlFor="date">Starts on <span>*</span></label>
+                    <label className="label" htmlFor="date">Starts on&nbsp;<span>*</span></label>
                     <input className="input-sm input-date" type="date" id="date" required/>
                     <span className="add-descr">at</span>
                     <input className="input-sm input-time" type="time" id="time" required/>
 
-                    <input type="radio" name="" id="am" value="am"/>
+                    <input type="radio" name="time" id="am" value="am" defaultChecked/>
                     <label className="label__payment" htmlFor="am">AM</label>
-                    <input type="radio" name="" id="pm" value="pm"/>
+                    <input type="radio" name="time" id="pm" value="pm"/>
                     <label className="label__payment" htmlFor="pm">PM</label>
                 </div>
 

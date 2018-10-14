@@ -43,10 +43,13 @@ class Coordinator extends React.Component {
             <div className="section__content">
 
                 <div className="section__row">
-                    <label className="label" htmlFor="responsible">Responsible <span>*</span></label>
+                    <label className="label" htmlFor="responsible">
+                        Responsible&nbsp;<span>*</span>
+                    </label>
                     <select className="input-lg"
                             name="responsible"
-                            id="responsible" onChange={e => this.handleChange(e)}>
+                            id="responsible"
+                            onChange={e => this.handleChange(e)}>
                         <option value="default">
                             Select employee
                         </option>
@@ -61,7 +64,11 @@ class Coordinator extends React.Component {
 
                 <div className="section__row">
                     <label className="label" htmlFor="email">Email</label>
-                    <input className="input-lg" type="email" id="email" placeholder="Email" value={this.state.email}/>
+                    <input className="input-lg"
+                           type="email"
+                           id="email"
+                           placeholder="Email"
+                           value={this.state.email}/>
                 </div>
 
             </div>
