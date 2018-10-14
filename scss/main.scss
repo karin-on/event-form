@@ -2,7 +2,10 @@ $font: 'Source Sans Pro', sans-serif;
 
 @import "normalize";
 
+
 * {
+  //margin: 0;
+  //padding: 0;
   box-sizing: border-box;
 }
 
@@ -54,7 +57,7 @@ body {
   margin-bottom: 23px;
   background: #ffffff;
   border-radius: 2px;
-  box-shadow: 0 0 7px 1px rgba(black, 0.1);
+  box-shadow: 0 0 7px 1px rgba(black, 0.08);
   padding: 0 40px;
 }
 
@@ -88,6 +91,70 @@ body {
   margin-bottom: 15px;
 }
 
+//.section__content {
+//  display: flex;
+//  flex-direction: column;
+//}
+
 .label {
-  display: block;
+  display: inline-block;
+  width: 117px;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: #9fb2cd;
+  font-size: 14px;
+
+  span {
+    color: rgba(red, 0.3);
+  }
+}
+
+.label__payment {
+  margin: 0 9px;
+}
+
+.input-lg {
+  width: 449px;
+  height: 34px;
+  border: 1px solid rgba(black, 0.15);
+  border-radius: 2px;
+  padding: 0 12px;
+
+  &::placeholder {
+    font-size: 15px;
+    color: rgba(black, 0.2);
+  }
+}
+
+.input-descr {
+  height: 137px;
+  resize: none;
+  padding-top: 10px;
+}
+
+.input-sm {
+  width: 78px;
+  height: 34px;
+  border: 1px solid rgba(black, 0.15);
+  border-radius: 2px;
+  padding: 0 12px;
+  margin-right: 18px;
+
+  &::placeholder {
+    font-size: 15px;
+    color: rgba(black, 0.2);
+  }
+}
+
+.input-date {
+  width: 188px;
+}
+
+.input-time {
+  margin-left: 18px;
+}
+
+.add-descr {
+  color: rgba(black, 0.5);
+  font-size: 16px;
 }
