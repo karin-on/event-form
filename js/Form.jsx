@@ -13,7 +13,9 @@ class Form extends React.Component {
             description: '',
             category: '',
             payment: false,
-            reward: ''
+            reward: '',
+            titleValid: true,
+            descriptionValid: true
         }
     }
 
@@ -31,12 +33,17 @@ class Form extends React.Component {
     validateForm = () => {
         console.log('waliduję');
 
-        let title = this.state.title.length === 0 ? 'Title cannot be empty' : '';
-        let description = (this.state.description.length === 0 ||
+        let titleMsg = this.state.title.length === 0 ? 'Title cannot be empty' : '';
+        let descriptionMsg = (this.state.description.length === 0 ||
             this.state.description.length > 140) ?
             'Description cannot be empty or longer than 140 characters' : '';
 
-        console.log(title, description);
+        console.log(titleMsg, descriptionMsg);
+
+        this.setState({
+            titleValid: (titleMsg === ''),
+            descriptionValid: (descriptionMsg === '')
+        })
     };
 
 
@@ -51,7 +58,9 @@ class Form extends React.Component {
 
                 <form className="form" onSubmit={this.handleSubmit}>
 
-                    <About handleFormChange={this.handleFormChange}/>
+                    <About handleFormChange={this.handleFormChange}
+                           titleValid={this.state.titleValid}
+                           descriptionValid={this.state.descriptionValid}/>
                     <Coordinator/>
                     <When/>
 

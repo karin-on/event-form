@@ -14,10 +14,6 @@ body {
   font-family: $font;
 }
 
-.display-none {
-  display: none;
-}
-
 .container {
   width: 1056px;
   height: 1145px;
@@ -109,6 +105,12 @@ body {
   //border: 1px solid pink;
 }
 
+.row-3 {
+  height: 34px;
+  display: flex;
+  align-items: center;
+}
+
 .label {
   display: inline-block;
   width: 117px;
@@ -144,9 +146,17 @@ body {
   }
 }
 
+.input-lg.error {
+  border: 1px solid rgba(red, 0.3);
+}
+
+.input-title__wrapper,
 .input-descr__wrapper {
   display: inline-block;
   position: relative;
+}
+
+.input-descr__wrapper {
   height: 153px;
 }
 
@@ -173,8 +183,49 @@ body {
   right: 0;
 }
 
+.error-msg-title,
+.error-msg-descr {
+  position: absolute;
+  display: inline-block;
+  font-size: 14px;
+  background: #ffb2b2;
+  border-radius: 3px;
+  color: white;
+  padding: 3px 5px;
+  font-weight: 100;
+
+  .caret {
+    position: absolute;
+    color: #ffb2b2;
+    transform: scale(1.2);
+  }
+}
+
+.error-msg-title {
+  width: 145px;
+  height: 25px;
+  top: 5px;
+  right: -157px;
+
+  .caret {
+    left: -5px;
+    top: 5px;
+  }
+}
+
+.error-msg-descr {
+  width: 145px;
+  height: 40px;
+  top: 49px;
+  right: -157px;
+
+  .caret {
+    left: -5px;
+    top: 12px;
+  }
+}
+
 .select-category__wrapper {
-  //border: 1px solid red;
   display: inline-block;
   height: 52px;
   position: relative;
@@ -206,4 +257,15 @@ body {
 .add-descr {
   color: rgba(black, 0.5);
   font-size: 16px;
+}
+
+
+
+//-----------
+.label.error {              //ERROR
+  color: rgba(red, 0.4);
+}
+
+.display-none {
+  display: none;
 }

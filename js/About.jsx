@@ -43,6 +43,30 @@ class About extends React.Component {
         let payment = this.state.payment;
         let priceClass = (JSON.parse(payment)) ? "price-wrapper" : "price-wrapper display-none";
 
+        console.log(this.props.titleValid);
+
+        let titleLabelClass = this.props.titleValid ?
+                            'label' :
+                            'label error';
+        let titleInputClass = this.props.titleValid ?
+                            'input-lg' :
+                            'input-lg error';
+        let titleMsgClass = this.props.titleValid ?
+                            'error-msg-title display-none' :
+                            'error-msg-title';
+
+
+        let descriptionLabelClass = this.props.descriptionValid ?
+                                'label label__description' :
+                                'label label__description error';
+        let descriptionClass = this.props.descriptionValid ?
+                                'input-lg input-descr' :
+                                'input-lg input-descr error';
+        let descriptionMsgClass = this.props.descriptionValid ?
+                                'error-msg-descr display-none' :
+                                'error-msg-descr';
+
+
         return <div className="form__section section__about">
             <div className="section__header">
                 <h2 className="section__title">About</h2>
@@ -51,32 +75,49 @@ class About extends React.Component {
             <div className="section__content">
 
                 <div className="section__row">
-                    <label className="label"
+                    <label className={titleLabelClass}
                            htmlFor="title">
                         Title&nbsp;<span>*</span>
                     </label>
-                    <input className="input-lg"
-                           type="text"
-                           id="title"
-                           placeholder="Make it short and clear"
-                           value={this.state.title}
-                           onChange={e => this.handleChange(e, 'title')}/>
+
+                    <div className="input-title__wrapper">
+                        <input className={titleInputClass}
+                               type="text"
+                               id="title"
+                               placeholder="Make it short and clear"
+                               value={this.state.title}
+                               onChange={e => this.handleChange(e, 'title')}/>
+
+                        <span className={titleMsgClass}>
+                            Title cannot be empty
+                            <span className="caret">
+                                <i className="fa fa-caret-left" aria-hidden="true"></i>
+                            </span>
+                        </span>
+                    </div>
                 </div>
 
                 <div className="section__row">
-                    <label className="label label__description"
+                    <label className={descriptionLabelClass}
                            htmlFor="description">
                         Description&nbsp;<span>*</span>
                     </label>
 
                     <div className="input-descr__wrapper">
-                        <textarea className="input-lg input-descr"
+                        <textarea className={descriptionClass}
                                   id="description"
                                   placeholder="Write about your event, be creative"
                                   value={this.state.description}
                                   onChange={e => this.handleChange(e, 'description')}/>
                         <span className="input-descr__note">Max length 140 characters</span>
                         <span className="input-descr__char">{descrLength}/140</span>
+
+                        <span className={descriptionMsgClass}>
+                            Description cannot be empty
+                            <span className="caret">
+                                <i className="fa fa-caret-left" aria-hidden="true"></i>
+                            </span>
+                        </span>
                     </div>
                 </div>
 
@@ -100,7 +141,7 @@ class About extends React.Component {
                     </div>
                 </div>
 
-                <div className="section__row">
+                <div className="section__row row-3">
                     <input type="radio"
                            name="payment"
                            id="payment-free"
