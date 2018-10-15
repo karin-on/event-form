@@ -13,7 +13,9 @@ class When extends React.Component {
                     <label className="label" htmlFor="date">Starts on&nbsp;<span>*</span></label>
                     <input className="input-sm input-date" type="date" id="date" required/>
                     <span className="add-descr">at</span>
-                    <input className="input-sm input-time" type="time" id="time" required/>
+                    <input className="input-sm input-time"
+                           type="time"
+                           id="time" min="00:00" max="11:59" required/>
 
                     <input type="radio" name="time" id="am" value="am" defaultChecked/>
                     <label className="label__payment" htmlFor="am">AM</label>

@@ -15,16 +15,28 @@ class About extends React.Component {
     }
 
     handleChange = (e, element) => {
-        this.setState({
-            [element]: e.target.value
-        });
+        if (element === 'reward') {
+            const reward = e.target.value.replace(/\D/g, '');
+            this.setState({
+                reward: reward
+            });
 
-        if (typeof this.props.handleFormChange === 'function') {
-            this.props.handleFormChange(e.target.value, element);
+            if (typeof this.props.handleFormChange === 'function') {
+                this.props.handleFormChange(reward, 'reward');
+            }
+        } else {
+            this.setState({
+                [element]: e.target.value
+            });
+
+            if (typeof this.props.handleFormChange === 'function') {
+                this.props.handleFormChange(e.target.value, element);
+            }
         }
     };
 
     render() {
+        console.log(this.state.description.length);
 
         let categoriesOptions = categories.map(el => {
             return <option value={el.id} key={el.id}>{el.name}</option>

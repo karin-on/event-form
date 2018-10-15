@@ -6,7 +6,8 @@ class Coordinator extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            email: ''
+            email: '',
+            loggedId: 3
         }
     }
 
@@ -14,20 +15,22 @@ class Coordinator extends React.Component {
         let id = e.target.value;
 
         this.setState({
-            email: e.target.value === "default" ? '' : employees[id].email
+            email: employees[id].email
         })
     };
 
     render() {
-        let employeesMeOption = <option value={employees[4].id}
-                                        key={employees[4].id}>
-                                        {employees[4].name} {employees[4].lastname}
+        let loggedId = this.state.loggedId;
+
+        let employeesMeOption = <option value={employees[loggedId].id}
+                                        key={employees[loggedId].id}>
+                                        {employees[loggedId].name}&nbsp;{employees[loggedId].lastname}
                                         </option>
 
         let employeesOtherOptions = [];
 
         employees.forEach(el => {
-            if (el.id !== 4) {
+            if (el.id !== loggedId) {
                 let opt = <option value={el.id}
                                   key={el.id}>
                                   {el.name} {el.lastname}
@@ -50,9 +53,6 @@ class Coordinator extends React.Component {
                             name="responsible"
                             id="responsible"
                             onChange={e => this.handleChange(e)}>
-                        <option value="default">
-                            Select employee
-                        </option>
                         <optgroup label="Me">
                             {employeesMeOption}
                         </optgroup>
