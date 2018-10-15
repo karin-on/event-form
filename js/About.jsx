@@ -40,7 +40,8 @@ class About extends React.Component {
         let categoriesOptions = categories.map(el => {
             return <option value={el.id} key={el.id}>{el.name}</option>
         });
-
+        let payment = this.state.payment;
+        let priceClass = (JSON.parse(payment)) ? "price-wrapper" : "price-wrapper display-none";
 
         return <div className="form__section section__about">
             <div className="section__header">
@@ -115,6 +116,14 @@ class About extends React.Component {
                            onChange={e => this.handleChange(e, 'payment')}/>
                     <label className="label__payment"
                            htmlFor="payment">Paid</label>
+
+                    <span className={priceClass}>
+                        <input className="input-sm"
+                               type="text"
+                               id="price"
+                               placeholder="Fee"/>
+                        <span className="add-descr">$</span>
+                    </span>
                 </div>
 
                 <div className="section__row">

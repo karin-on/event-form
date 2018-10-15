@@ -20,7 +20,7 @@ module.exports = [
     {
         "id": 3,
         "name": "Stefcia",
-        "lastname": "Szczapańska",
+        "lastname": "Szczepańska",
         "email": "StefciaSzczepanska@jourrapid.com"
     },
     {
