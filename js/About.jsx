@@ -36,8 +36,7 @@ class About extends React.Component {
     };
 
     render() {
-        console.log(this.state.description.length);
-
+        let descrLength = this.state.description.length;
         let categoriesOptions = categories.map(el => {
             return <option value={el.id} key={el.id}>{el.name}</option>
         });
@@ -68,25 +67,36 @@ class About extends React.Component {
                            htmlFor="description">
                         Description&nbsp;<span>*</span>
                     </label>
-                    <textarea className="input-lg input-descr"
-                              id="description"
-                              placeholder="Write about your event, be creative"
-                              value={this.state.description}
-                              onChange={e => this.handleChange(e, 'description')}/>
+
+                    <div className="input-descr__wrapper">
+                        <textarea className="input-lg input-descr"
+                                  id="description"
+                                  placeholder="Write about your event, be creative"
+                                  value={this.state.description}
+                                  onChange={e => this.handleChange(e, 'description')}/>
+                        <span className="input-descr__note">Max length 140 characters</span>
+                        <span className="input-descr__char">{descrLength}/140</span>
+                    </div>
                 </div>
 
                 <div className="section__row">
                     <label className="label"
                            htmlFor="category">Category</label>
-                    <select className="input-lg"
-                            name="category"
-                            id="category"
-                            value={this.state.category}
-                            onChange={e => this.handleChange(e, 'category')}>
 
-                        <option value="">Select category (skills, interests, locations)</option>
-                        {categoriesOptions}
-                    </select>
+                    <div className="select-category__wrapper">
+                        <select className="input-lg"
+                                name="category"
+                                id="category"
+                                value={this.state.category}
+                                onChange={e => this.handleChange(e, 'category')}>
+
+                            <option value="">Select category (skills, interests, locations)</option>
+                            {categoriesOptions}
+                        </select>
+                        <span className="input-descr__note">
+                            Describes topic and people who should be interested in this event
+                        </span>
+                    </div>
                 </div>
 
                 <div className="section__row">

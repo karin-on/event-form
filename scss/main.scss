@@ -140,11 +140,42 @@ body {
   }
 }
 
+.input-descr__wrapper {
+  display: inline-block;
+  position: relative;
+  height: 153px;
+}
+
 .input-descr {
   height: 137px;
   resize: none;
   padding-top: 10px;
 }
+
+.input-descr__note,
+.input-descr__char {
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(black, 0.1);
+  position: absolute;
+  bottom: 0;
+}
+
+.input-descr__note {
+  left: 0;
+}
+
+.input-descr__char {
+  right: 0;
+}
+
+.select-category__wrapper {
+  //border: 1px solid red;
+  display: inline-block;
+  height: 52px;
+  position: relative;
+}
+
 
 .input-sm {
   width: 78px;
