@@ -13,6 +13,7 @@ class Form extends React.Component {
             description: '',
             category: '',
             payment: false,
+            price: '',
             reward: '',
             titleValid: true,
             descriptionValid: true
@@ -27,6 +28,9 @@ class Form extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+
+        console.log(this.state.payment);
+
         this.validateForm();
     };
 
@@ -35,10 +39,13 @@ class Form extends React.Component {
 
         let titleMsg = this.state.title.length === 0 ? 'Title cannot be empty' : '';
         let descriptionMsg = (this.state.description.length === 0 ||
-            this.state.description.length > 140) ?
-            'Description cannot be empty or longer than 140 characters' : '';
+                            this.state.description.length > 140) ?
+                            'Description cannot be empty or longer than 140 characters' : '';
+        let priceMsg = (JSON.parse(this.state.payment) && this.state.price.length === 0)?
+                        'Price cannot be empty' : '';
 
-        console.log(titleMsg, descriptionMsg);
+        console.log(priceMsg);
+        console.log(this.state.price);
 
         this.setState({
             titleValid: (titleMsg === ''),

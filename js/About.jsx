@@ -44,7 +44,7 @@ class About extends React.Component {
         let payment = this.state.payment;
         let priceClass = (JSON.parse(payment)) ? "price-wrapper" : "price-wrapper display-none";
 
-        console.log(this.props.titleValid);
+        // console.log(this.props.titleValid);
 
         let titleLabelClass = this.props.titleValid ?
                             'label' :
@@ -161,7 +161,7 @@ class About extends React.Component {
                            htmlFor="payment">Paid event</label>
 
                     <span className={priceClass}>
-                        <input className="input-sm"
+                        <input className="input-sm input-sm--about"
                                type="text"
                                id="price"
                                placeholder="Fee"
@@ -174,7 +174,7 @@ class About extends React.Component {
                 <div className="section__row">
                     <label className="label"
                            htmlFor="reward">Reward</label>
-                    <input className="input-sm"
+                    <input className="input-sm input-sm--about"
                            type="text"
                            id="reward"
                            placeholder="Number"
