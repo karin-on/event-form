@@ -2,7 +2,28 @@ import React from "react";
 
 
 class When extends React.Component {
+
+    handleChange = (e) => {
+        let arr = e.target.value.split('-');
+        let valueY = parseInt(arr[0]);
+        let valueM = parseInt(arr[1]);
+        let valueD = parseInt(arr[2]);
+
+        let currDate = new Date();
+        let currY = currDate.getFullYear();
+        let currM = currDate.getMonth() + 1;
+        let currD = currDate.getDate();
+
+        if (valueY >= currY && valueM >= currM && valueD >= currD) {
+            console.log('ok');
+        } else {
+            console.log('nie ok');
+        }
+
+    }
+
     render() {
+
         return <div className="form__section section__when">
             <div className="section__header">
                 <h2 className="section__title">When</h2>
@@ -11,7 +32,12 @@ class When extends React.Component {
 
                 <div className="section__row">
                     <label className="label" htmlFor="date">Starts on&nbsp;<span>*</span></label>
-                    <input className="input-sm input-date" type="date" id="date" required/>
+                    <input className="input-sm input-date"
+                           type="date"
+                           id="date"
+                           required
+                           onChange={e => this.handleChange(e)}/>
+
                     <span className="add-text">at</span>
                     <input className="input-sm input-time"
                            type="time"
