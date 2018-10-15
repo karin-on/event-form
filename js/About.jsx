@@ -10,19 +10,20 @@ class About extends React.Component {
             description: '',
             category: '',
             payment: false,
+            price: '',
             reward: ''
         }
     }
 
     handleChange = (e, element) => {
-        if (element === 'reward') {
-            const reward = e.target.value.replace(/\D/g, '');
+        if (element === 'reward' || element === 'price') {
+            const value = e.target.value.replace(/\D/g, '');
             this.setState({
-                reward: reward
+                [element]: value
             });
 
             if (typeof this.props.handleFormChange === 'function') {
-                this.props.handleFormChange(reward, 'reward');
+                this.props.handleFormChange(value, element);
             }
         } else {
             this.setState({
@@ -142,13 +143,14 @@ class About extends React.Component {
                 </div>
 
                 <div className="section__row row-3">
+                    <span className="payment-title">Payment</span>
                     <input type="radio"
                            name="payment"
                            id="payment-free"
                            value={false}
                            onChange={e => this.handleChange(e, 'payment')} defaultChecked/>
                     <label className="label__payment"
-                           htmlFor="payment">Free</label>
+                           htmlFor="payment">Free event</label>
 
                     <input type="radio"
                            name="payment"
@@ -156,14 +158,16 @@ class About extends React.Component {
                            value={true}
                            onChange={e => this.handleChange(e, 'payment')}/>
                     <label className="label__payment"
-                           htmlFor="payment">Paid</label>
+                           htmlFor="payment">Paid event</label>
 
                     <span className={priceClass}>
                         <input className="input-sm"
                                type="text"
                                id="price"
-                               placeholder="Fee"/>
-                        <span className="add-descr">$</span>
+                               placeholder="Fee"
+                               value={this.state.price}
+                               onChange={e => this.handleChange(e, 'price')}/>
+                        <span className="add-text">$</span>
                     </span>
                 </div>
 
@@ -176,7 +180,7 @@ class About extends React.Component {
                            placeholder="Number"
                            value={this.state.reward}
                            onChange={e => this.handleChange(e, 'reward')}/>
-                    <span className="add-descr">rewards points for attendance</span>
+                    <span className="add-text">rewards points for attendance</span>
                 </div>
             </div>
         </div>

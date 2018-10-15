@@ -12,7 +12,7 @@ class When extends React.Component {
                 <div className="section__row">
                     <label className="label" htmlFor="date">Starts on&nbsp;<span>*</span></label>
                     <input className="input-sm input-date" type="date" id="date" required/>
-                    <span className="add-descr">at</span>
+                    <span className="add-text">at</span>
                     <input className="input-sm input-time"
                            type="time"
                            id="time" min="00:00" max="11:59" required/>
@@ -26,7 +26,7 @@ class When extends React.Component {
                 <div className="section__row">
                     <label className="label" htmlFor="duration">Duration</label>
                     <input className="input-sm" type="text" id="duration" placeholder="Number"/>
-                    <span className="add-descr">hour</span>
+                    <span className="add-text">hour</span>
                 </div>
 
             </div>

@@ -111,7 +111,8 @@ body {
   align-items: center;
 }
 
-.label {
+.label,
+.payment-title {
   display: inline-block;
   width: 117px;
   font-weight: 200;
@@ -131,6 +132,8 @@ body {
 
 .label__payment {
   margin: 0 9px;
+  color: rgba(black, 0.5);
+  font-size: 16px;
 }
 
 .input-lg {
@@ -139,6 +142,8 @@ body {
   border: 1px solid rgba(black, 0.15);
   border-radius: 2px;
   padding: 0 12px;
+  color: rgba(black, 0.5);
+  font-size: 16px;
 
   &::placeholder {
     font-size: 15px;
@@ -238,6 +243,8 @@ body {
   border-radius: 2px;
   padding: 0 12px;
   margin-right: 18px;
+  color: rgba(black, 0.5);
+  font-size: 16px;
 
   &::placeholder {
     font-size: 15px;
@@ -254,7 +261,7 @@ body {
   margin-left: 18px;
 }
 
-.add-descr {
+.add-text {
   color: rgba(black, 0.5);
   font-size: 16px;
 }
