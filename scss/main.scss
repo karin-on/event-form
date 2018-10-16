@@ -240,6 +240,10 @@ select {
   font-weight: 300;
   border: none;
   cursor: pointer;
+
+  &:hover {
+    background: lighten(#ff8e1c, 5%);
+  }
 }
 
 

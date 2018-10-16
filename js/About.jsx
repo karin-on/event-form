@@ -58,7 +58,6 @@ class About extends React.Component {
                             'error-msg-title display-none' :
                             'error-msg-title';
 
-
         const descriptionLabelClass = this.props.descriptionValid ?
                                 'label label__description' :
                                 'label label__description error';
