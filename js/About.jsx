@@ -77,6 +77,9 @@ class About extends React.Component {
         const priceInputClass = this.props.priceValid ?
                                 "input-sm input-sm--about" :
                                 "input-sm input-sm--about error";
+        const priceMsgClass = this.props.priceValid ?
+                                'error-msg-price display-none' :
+                                'error-msg-price';
 
 
         return <div className="form__section section__about">
@@ -154,7 +157,7 @@ class About extends React.Component {
                 </div>
 
                 <div className="section__row row-3">
-                    <span className={priceLabelClass}>Payment</span>
+                    <span className={priceLabelClass}>Payment&nbsp;<span>*</span></span>
                     <input type="radio"
                            name="payment"
                            id="payment-free"
@@ -179,6 +182,13 @@ class About extends React.Component {
                                value={this.state.price}
                                onChange={e => this.handleChange(e, 'price')}/>
                         <span className="add-text">$</span>
+
+                        <span className={priceMsgClass}>
+                            Price cannot be empty
+                            <span className="caret">
+                                <i className="fa fa-caret-left" aria-hidden="true"></i>
+                            </span>
+                        </span>
                     </span>
                 </div>
 

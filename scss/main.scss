@@ -208,6 +208,11 @@ select {
   margin-right: 10px;
 }
 
+.price-wrapper {
+  position: relative;
+}
+
+
 .input-date {
   width: 188px;
   cursor: pointer;
@@ -250,14 +255,15 @@ select {
 }
 
 .error-msg-title,
-.error-msg-descr {
+.error-msg-descr,
+.error-msg-price {
   position: absolute;
   display: inline-block;
   font-size: 14px;
   background: #ffb2b2;
   border-radius: 3px;
   color: white;
-  padding: 3px 10px;
+  padding: 3px 9px;
   font-weight: 100;
 
   .caret {
@@ -291,6 +297,17 @@ select {
   }
 }
 
+.error-msg-price {
+  width: 145px;
+  height: 25px;
+  top: 5px;
+  right: -307px;
+
+  .caret {
+    left: -5px;
+    top: 5px;
+  }
+}
 
 //-------------------------- DISPLAY
 .display-none {
