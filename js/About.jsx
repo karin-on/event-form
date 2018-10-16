@@ -16,6 +16,9 @@ class About extends React.Component {
     }
 
     handleChange = (e, element) => {
+        // console.log(e.target.value, element);
+
+
         if (element === 'reward' || element === 'price') {
             const value = e.target.value.replace(/\D/g, '');
             this.setState({
@@ -23,8 +26,9 @@ class About extends React.Component {
             });
 
             if (typeof this.props.handleFormChange === 'function') {
-                this.props.handleFormChange(value, element);
+                this.props.handleFormChange(e.target.value.replace(/\D/g, ''), element);
             }
+
         } else {
             this.setState({
                 [element]: e.target.value
@@ -37,35 +41,42 @@ class About extends React.Component {
     };
 
     render() {
-        let descrLength = this.state.description.length;
-        let categoriesOptions = categories.map(el => {
+        const descrLength = this.state.description.length;
+        const categoriesOptions = categories.map(el => {
             return <option value={el.id} key={el.id}>{el.name}</option>
         });
-        let payment = this.state.payment;
-        let priceClass = (JSON.parse(payment)) ? "price-wrapper" : "price-wrapper display-none";
 
         // console.log(this.props.titleValid);
 
-        let titleLabelClass = this.props.titleValid ?
+        const titleLabelClass = this.props.titleValid ?
                             'label' :
                             'label error';
-        let titleInputClass = this.props.titleValid ?
+        const titleInputClass = this.props.titleValid ?
                             'input-lg' :
                             'input-lg error';
-        let titleMsgClass = this.props.titleValid ?
+        const titleMsgClass = this.props.titleValid ?
                             'error-msg-title display-none' :
                             'error-msg-title';
 
 
-        let descriptionLabelClass = this.props.descriptionValid ?
+        const descriptionLabelClass = this.props.descriptionValid ?
                                 'label label__description' :
                                 'label label__description error';
-        let descriptionClass = this.props.descriptionValid ?
+        const descriptionAreaClass = this.props.descriptionValid ?
                                 'input-lg input-descr' :
                                 'input-lg input-descr error';
-        let descriptionMsgClass = this.props.descriptionValid ?
+        const descriptionMsgClass = this.props.descriptionValid ?
                                 'error-msg-descr display-none' :
                                 'error-msg-descr';
+
+        const payment = this.state.payment;
+        const priceClass = (JSON.parse(payment)) ? "price-wrapper" : "price-wrapper display-none";
+        const priceLabelClass = this.props.priceValid ?
+                                "payment-title" :
+                                "payment-title error";
+        const priceInputClass = this.props.priceValid ?
+                                "input-sm input-sm--about" :
+                                "input-sm input-sm--about error";
 
 
         return <div className="form__section section__about">
@@ -105,7 +116,7 @@ class About extends React.Component {
                     </label>
 
                     <div className="input-descr__wrapper">
-                        <textarea className={descriptionClass}
+                        <textarea className={descriptionAreaClass}
                                   id="description"
                                   placeholder="Write about your event, be creative"
                                   value={this.state.description}
@@ -143,7 +154,7 @@ class About extends React.Component {
                 </div>
 
                 <div className="section__row row-3">
-                    <span className="payment-title">Payment</span>
+                    <span className={priceLabelClass}>Payment</span>
                     <input type="radio"
                            name="payment"
                            id="payment-free"
@@ -161,7 +172,7 @@ class About extends React.Component {
                            htmlFor="payment">Paid event</label>
 
                     <span className={priceClass}>
-                        <input className="input-sm input-sm--about"
+                        <input className={priceInputClass}
                                type="text"
                                id="price"
                                placeholder="Fee"

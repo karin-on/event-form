@@ -39,6 +39,8 @@ class Coordinator extends React.Component {
             }
         });
 
+        // let email =
+
         return <div className="form__section section__coordinator">
             <div className="section__header">
                 <h2 className="section__title">Coordinator</h2>

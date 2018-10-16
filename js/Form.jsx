@@ -16,7 +16,8 @@ class Form extends React.Component {
             price: '',
             reward: '',
             titleValid: true,
-            descriptionValid: true
+            descriptionValid: true,
+            priceValid: true,
         }
     }
 
@@ -24,12 +25,14 @@ class Form extends React.Component {
         this.setState({
             [element]: value
         });
+
+        // console.log(this.state);
     };
 
     handleSubmit = (event) => {
         event.preventDefault();
 
-        console.log(this.state.payment);
+        // console.log(this.state.payment);
 
         this.validateForm();
     };
@@ -44,18 +47,18 @@ class Form extends React.Component {
         let priceMsg = (JSON.parse(this.state.payment) && this.state.price.length === 0)?
                         'Price cannot be empty' : '';
 
-        console.log(priceMsg);
-        console.log(this.state.price);
+        console.log('priceMsg: ' + priceMsg);
+        // console.log(this.state.price);
 
         this.setState({
             titleValid: (titleMsg === ''),
-            descriptionValid: (descriptionMsg === '')
+            descriptionValid: (descriptionMsg === ''),
+            priceValid: (priceMsg === '')
         })
     };
 
 
     render() {
-
         return <div className="container">
 
             <div className="header">
@@ -67,7 +70,8 @@ class Form extends React.Component {
 
                     <About handleFormChange={this.handleFormChange}
                            titleValid={this.state.titleValid}
-                           descriptionValid={this.state.descriptionValid}/>
+                           descriptionValid={this.state.descriptionValid}
+                           priceValid={this.state.priceValid}/>
                     <Coordinator/>
                     <When/>
 

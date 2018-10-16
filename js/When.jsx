@@ -15,9 +15,9 @@ class When extends React.Component {
         let currD = currDate.getDate();
 
         if (valueY >= currY && valueM >= currM && valueD >= currD) {
-            console.log('ok');
+            // console.log('ok');
         } else {
-            console.log('nie ok');
+            // console.log('nie ok');
         }
 
     }
