@@ -3,11 +3,12 @@ import ReactDOM from "react-dom";
 
 import '../scss/main.scss';
 
-import {Form} from "./Form.jsx";
+import {Container} from "./Container.jsx";
+
 
 class App extends React.Component {
     render() {
-        return <Form/>
+        return <Container/>
     }
 }
 

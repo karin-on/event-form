@@ -243,8 +243,29 @@ select {
   }
 }
 
+//----------------------------- SUCCESS -------------------
+.success {
+  width: 100%;
+  height: 100px;
+  //display: flex;
+  //flex-direction: column;
+  //flex-basis: 47px;
+  margin-bottom: 23px;
+  background: #f0fcf3;
+  border-radius: 2px;
+  box-shadow: 0 0 7px 1px rgba(black, 0.08);
+  padding: 0 40px;
+}
 
-//----------------------------- ERROR
+.success__header {
+
+}
+
+.success__title {
+  color: #71bf75;
+}
+
+//----------------------------- ERROR -------------------------
 .label.error,
 .payment-title.error {
   color: rgba(red, 0.4);

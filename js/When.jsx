@@ -68,7 +68,9 @@ class When extends React.Component {
                     <span className="add-text">at</span>
                     <input className="input-sm input-time"
                            type="time"
-                           id="time" min="00:00" max="11:59" required/>
+                           id="time" min="00:00" max="11:59"
+                           required
+                           onChange={e => this.handleChange(e, 'time')}/>
 
                     <input type="radio" name="time" id="am" value="am" defaultChecked/>
                     <label className="label__payment" htmlFor="am">AM</label>

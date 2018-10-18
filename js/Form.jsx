@@ -3,7 +3,7 @@ import React from "react";
 import {About} from "./About.jsx";
 import {Coordinator} from "./Coordinator.jsx";
 import {When} from "./When.jsx";
-
+import employees from "../data/employees";
 
 class Form extends React.Component {
     constructor(props) {
@@ -17,6 +17,7 @@ class Form extends React.Component {
             reward: '',
             coordinatorId: '',
             date: '',
+            time: '',
             duration: '',
             titleValid: true,
             descriptionValid: true,
@@ -34,22 +35,69 @@ class Form extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        console.log(this.state);
-        // console.log(this.state.payment);
+        // console.log(this.state);
 
         this.validateForm();
     };
 
     validateForm = () => {
-        console.log('waliduję');
+        // console.log('waliduję');
+        let titleValid = this.state.title.length > 0;
+        let descriptionValid = this.state.description.length > 0;
+        let priceValid = !JSON.parse(this.state.payment) ||
+            (JSON.parse(this.state.payment) && this.state.price.length > 0);
+        let dateValid = this.validateDate(this.state.date);
 
         this.setState({
-            titleValid: this.state.title.length > 0,
-            descriptionValid: this.state.description.length > 0,
-            priceValid: !JSON.parse(this.state.payment) || (JSON.parse(this.state.payment) && this.state.price.length > 0),
-            dateValid: this.validateDate(this.state.date)
-        })
+            titleValid: titleValid,
+            descriptionValid: descriptionValid,
+            priceValid: priceValid,
+            dateValid: dateValid
+        });
+
+        if (typeof this.props.isSuccess === 'function') {
+            this.props.isSuccess(titleValid && descriptionValid && priceValid && dateValid);
+            this.createNewEvent();
+        }
     };
+
+    createNewEvent = () => {
+        let duration = parseInt(this.state.duration, 10) * 3600;
+        let id = parseInt(this.state.coordinatorId);
+
+        let obj = {
+                title: this.state.title,
+                description: this.state.description,
+                category_id: parseInt(this.state.category),
+                paid_event: JSON.parse(this.state.payment),
+                event_fee: parseInt(this.state.price),
+                reward: parseInt(this.state.reward),
+                date: this.state.date + 'T' + this.state.time, // YYYY-MM-DDTHH:mm (example: 2018-01-19T15:15)
+                duration: duration,
+                coordinator: {
+                    email: employees[id].email,
+                    id: id,
+                }
+            };
+        console.log(obj);
+
+        // {
+        //     title: string,           --ok
+        //     description: string,     --ok
+        //     category_id: number,     --> parse
+        //     paid_event: boolean,     --> parse
+        //     event_fee: number,
+        //     reward: number,
+        //     date: string, // YYYY-MM-DDTHH:mm (example: 2018-01-19T15:15)
+        //     duration: number, // in seconds
+        //     coordinator: {
+        //     email: string,
+        //     id: string,
+        //     }
+        // }
+
+    };
+
 
     validateDate = (date) => {
         let arr = date.split('-');
@@ -66,31 +114,26 @@ class Form extends React.Component {
     };
 
     render() {
-        return <div className="container">
+        // console.log(employees);
 
-            <div className="header">
-                <h1 className="header__title">New event</h1>
-            </div>
-            <div className="content">
 
-                <form className="form" onSubmit={this.handleSubmit}>
+        return <form className="form" onSubmit={this.handleSubmit}>
 
-                    <About handleFormChange={this.handleFormChange}
-                           titleValid={this.state.titleValid}
-                           descriptionValid={this.state.descriptionValid}
-                           priceValid={this.state.priceValid}/>
-                    <Coordinator handleFormChange={this.handleFormChange}/>
-                    <When handleFormChange={this.handleFormChange}
-                          dateValid={this.state.dateValid}/>
+            <About handleFormChange={this.handleFormChange}
+                   titleValid={this.state.titleValid}
+                   descriptionValid={this.state.descriptionValid}
+                   priceValid={this.state.priceValid}/>
 
-                    <input className="form-submit"
-                           type="submit"
-                           value="Publish event"/>
+            <Coordinator handleFormChange={this.handleFormChange}/>
 
-                </form>
-            </div>
+            <When handleFormChange={this.handleFormChange}
+                  dateValid={this.state.dateValid}/>
 
-        </div>
+            <input className="form-submit"
+                   type="submit"
+                   value="Publish event"/>
+
+        </form>
     }
 }
 
