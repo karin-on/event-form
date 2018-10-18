@@ -2,15 +2,33 @@ import React from "react";
 
 
 class When extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            duration: ''
+        }
+    }
+
 
     handleChange = (e, element) => {
+        if (element === 'duration') {
+            const value = e.target.value.replace(/\D/g, '');
+            this.setState({
+                [element]: value
+            });
+
+            if (typeof this.props.handleFormChange === 'function') {
+                this.props.handleFormChange(value, element);
+            }
+        }
+
         if (typeof this.props.handleFormChange === 'function') {
             this.props.handleFormChange(e.target.value, element);
         }
     };
 
     render() {
-        console.log(this.props.dateValid);
+        // console.log(this.props.dateValid);
 
         const dateLabelClass = this.props.dateValid ?
                             'label' :
@@ -18,6 +36,9 @@ class When extends React.Component {
         let dateInputClass = this.props.dateValid ?
                             'input-sm input-date' :
                             'input-sm input-date error';
+        let dateMsgClass = this.props.dateValid ?
+                            'error-msg-date display-none' :
+                            'error-msg-date';
 
 
         return <div className="form__section section__when">
@@ -29,11 +50,20 @@ class When extends React.Component {
                 <div className="section__row">
                     <label className={dateLabelClass}
                            htmlFor="date">Starts on&nbsp;<span>*</span></label>
-                    <input className={dateInputClass}
-                           type="date"
-                           id="date"
-                           required
-                           onChange={e => this.handleChange(e, 'date')}/>
+                    <span className="input-sm__wrapper">
+                        <input className={dateInputClass}
+                               type="date"
+                               id="date"
+                               required
+                               onChange={e => this.handleChange(e, 'date')}/>
+
+                        <span className={dateMsgClass}>
+                            Date cannot be prior to the actual date
+                            <span className="caret">
+                                <i className="fa fa-caret-left" aria-hidden="true"></i>
+                            </span>
+                        </span>
+                    </span>
 
                     <span className="add-text">at</span>
                     <input className="input-sm input-time"
@@ -48,7 +78,12 @@ class When extends React.Component {
 
                 <div className="section__row">
                     <label className="label" htmlFor="duration">Duration</label>
-                    <input className="input-sm" type="text" id="duration" placeholder="Number"/>
+                    <input className="input-sm"
+                           type="text"
+                           id="duration"
+                           placeholder="Number"
+                           value={this.state.duration}
+                           onChange={e => this.handleChange(e, 'duration')}/>
                     <span className="add-text">hour</span>
                 </div>
 

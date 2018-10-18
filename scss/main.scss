@@ -206,7 +206,7 @@ select {
   margin-right: 10px;
 }
 
-.price-input__wrapper {
+.input-sm__wrapper {
   position: relative;
 }
 
@@ -257,7 +257,8 @@ select {
 
 .error-msg-title,
 .error-msg-descr,
-.error-msg-price {
+.error-msg-price,
+.error-msg-date {
   position: absolute;
   display: inline-block;
   font-size: 14px;
@@ -309,6 +310,19 @@ select {
     top: 5px;
   }
 }
+
+.error-msg-date {
+  width: 145px;
+  height: 40px;
+  top: -10px;
+  right: -399px;
+
+  .caret {
+    left: -5px;
+    top: 12px;
+  }
+}
+
 
 //-------------------------- DISPLAY
 .display-none {

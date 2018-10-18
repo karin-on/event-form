@@ -17,6 +17,7 @@ class Form extends React.Component {
             reward: '',
             coordinatorId: '',
             date: '',
+            duration: '',
             titleValid: true,
             descriptionValid: true,
             priceValid: true,
@@ -42,23 +43,11 @@ class Form extends React.Component {
     validateForm = () => {
         console.log('waliduję');
 
-        let titleMsg = this.state.title.length === 0 ? 'Title cannot be empty' : '';
-        let descriptionMsg = (this.state.description.length === 0 ||
-                            this.state.description.length > 140) ?
-                            'Description cannot be empty or longer than 140 characters' : '';
-        let priceMsg = (JSON.parse(this.state.payment) && this.state.price.length === 0)?
-                        'Price cannot be empty' : '';
-
-        let dateMsg = this.validateDate(this.state.date);
-
-        // console.log('priceMsg: ' + priceMsg);
-        // console.log(this.state.price);
-
         this.setState({
-            titleValid: (titleMsg === ''),
-            descriptionValid: (descriptionMsg === ''),
-            priceValid: (priceMsg === ''),
-            dateValid: (dateMsg === '')
+            titleValid: this.state.title.length > 0,
+            descriptionValid: this.state.description.length > 0,
+            priceValid: !JSON.parse(this.state.payment) || (JSON.parse(this.state.payment) && this.state.price.length > 0),
+            dateValid: this.validateDate(this.state.date)
         })
     };
 
@@ -73,12 +62,7 @@ class Form extends React.Component {
         let currM = currDate.getMonth() + 1;
         let currD = currDate.getDate();
 
-        if (valueY >= currY && valueM >= currM && valueD >= currD) {
-            return '';
-        } else {
-            return 'Date cannot be prior to the actual date';
-        }
-
+        return (valueY >= currY && valueM >= currM && valueD >= currD);
     };
 
     render() {

@@ -69,8 +69,8 @@ class About extends React.Component {
 
         const payment = this.state.payment;
         const priceWrapperClass = (JSON.parse(payment)) ?
-                                "price-input__wrapper" :
-                                "price-input__wrapper display-none";
+                                "input-sm__wrapper" :
+                                "input-sm__wrapper display-none";
 
         const priceLabelClass = this.props.priceValid ?
                                 "payment-title" :
