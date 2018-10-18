@@ -10,7 +10,7 @@ class About extends React.Component {
             description: '',
             category: '',
             payment: false,
-            price: '',
+            fee: '',
             reward: ''
         }
     }
@@ -18,7 +18,7 @@ class About extends React.Component {
     handleChange = (e, element) => {
         // console.log(e.target.value, element);
 
-        if (element === 'reward' || element === 'price') {
+        if (element === 'reward' || element === 'fee') {
             const value = e.target.value.replace(/\D/g, '');
             this.setState({
                 [element]: value
@@ -68,19 +68,19 @@ class About extends React.Component {
                                 'error-msg-descr';
 
         const payment = this.state.payment;
-        const priceWrapperClass = (JSON.parse(payment)) ?
+        const feeWrapperClass = (JSON.parse(payment)) ?
                                 "input-sm__wrapper" :
                                 "input-sm__wrapper display-none";
 
-        const priceLabelClass = this.props.priceValid ?
+        const feeLabelClass = this.props.feeValid ?
                                 "payment-title" :
                                 "payment-title error";
-        const priceInputClass = this.props.priceValid ?
+        const feeInputClass = this.props.feeValid ?
                                 "input-sm input-sm--about" :
                                 "input-sm input-sm--about error";
-        const priceMsgClass = this.props.priceValid ?
-                                'error-msg-price display-none' :
-                                'error-msg-price';
+        const feeMsgClass = this.props.feeValid ?
+                                'error-msg-fee display-none' :
+                                'error-msg-fee';
 
 
         return <div className="form__section section__about">
@@ -158,7 +158,7 @@ class About extends React.Component {
                 </div>
 
                 <div className="section__row row-3">
-                    <span className={priceLabelClass}>Payment&nbsp;<span>*</span></span>
+                    <span className={feeLabelClass}>Payment&nbsp;<span>*</span></span>
                     <input type="radio"
                            name="payment"
                            id="payment-free"
@@ -175,17 +175,17 @@ class About extends React.Component {
                     <label className="label__payment"
                            htmlFor="payment">Paid event</label>
 
-                    <span className={priceWrapperClass}>
-                        <input className={priceInputClass}
+                    <span className={feeWrapperClass}>
+                        <input className={feeInputClass}
                                type="text"
-                               id="price"
+                               id="fee"
                                placeholder="Fee"
-                               value={this.state.price}
-                               onChange={e => this.handleChange(e, 'price')}/>
+                               value={this.state.fee}
+                               onChange={e => this.handleChange(e, 'fee')}/>
                         <span className="add-text">$</span>
 
-                        <span className={priceMsgClass}>
-                            Price cannot be empty
+                        <span className={feeMsgClass}>
+                            Fee cannot be empty
                             <span className="caret">
                                 <i className="fa fa-caret-left" aria-hidden="true"></i>
                             </span>

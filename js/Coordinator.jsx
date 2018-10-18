@@ -5,11 +5,9 @@ import employees from "../data/employees";
 class Coordinator extends React.Component {
     constructor(props) {
         super(props);
-        this.loggedInId = 3;
         this.state={
-            email: employees[this.loggedInId].email,      //lub ''
-            // loggedInId: 3,
-            coordinator: this.loggedInId
+            email: employees[this.props.loggedInId].email,
+            coordinator: this.props.loggedInId
         }
     }
 
@@ -28,8 +26,7 @@ class Coordinator extends React.Component {
     };
 
     render() {
-        let loggedId = this.loggedInId;
-        let currId = this.state.coordinator;
+        let loggedId = this.props.loggedInId;
 
         let employeesMeOption = <option value={employees[loggedId].id}
                                         key={employees[loggedId].id}>
@@ -62,8 +59,8 @@ class Coordinator extends React.Component {
                     <select className="input-lg"
                             name="coordinator"
                             id="coordinator"
-                            value={this.state.coordinator}
-                            onChange={e => this.handleChange(e, 'coordinatorId')}>
+                            // value={this.state.coordinator}
+                            onChange={e => this.handleChange(e, 'coordinator')}>
                         <optgroup label="Me">
                             {employeesMeOption}
                         </optgroup>

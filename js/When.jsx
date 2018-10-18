@@ -9,7 +9,6 @@ class When extends React.Component {
         }
     }
 
-
     handleChange = (e, element) => {
         if (element === 'duration') {
             const value = e.target.value.replace(/\D/g, '');
@@ -72,9 +71,15 @@ class When extends React.Component {
                            required
                            onChange={e => this.handleChange(e, 'time')}/>
 
-                    <input type="radio" name="time" id="am" value="am" defaultChecked/>
+                    <input type="radio" name="time" id="am"
+                           value={false}
+                           onChange={e => this.handleChange(e, 'pm')}
+                           defaultChecked/>
                     <label className="label__payment" htmlFor="am">AM</label>
-                    <input type="radio" name="time" id="pm" value="pm"/>
+
+                    <input type="radio" name="time" id="pm"
+                           value={true}
+                           onChange={e => this.handleChange(e, 'pm')}/>
                     <label className="label__payment" htmlFor="pm">PM</label>
                 </div>
 

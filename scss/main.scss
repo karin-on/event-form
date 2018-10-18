@@ -278,7 +278,7 @@ select {
 
 .error-msg-title,
 .error-msg-descr,
-.error-msg-price,
+.error-msg-fee,
 .error-msg-date {
   position: absolute;
   display: inline-block;
@@ -320,7 +320,7 @@ select {
   }
 }
 
-.error-msg-price {
+.error-msg-fee {
   width: 145px;
   height: 25px;
   top: 5px;
