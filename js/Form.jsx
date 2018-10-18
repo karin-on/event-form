@@ -15,9 +15,12 @@ class Form extends React.Component {
             payment: false,
             price: '',
             reward: '',
+            coordinatorId: '',
+            date: '',
             titleValid: true,
             descriptionValid: true,
             priceValid: true,
+            dateValid: true
         }
     }
 
@@ -25,13 +28,12 @@ class Form extends React.Component {
         this.setState({
             [element]: value
         });
-
-        // console.log(this.state);
     };
 
     handleSubmit = (event) => {
         event.preventDefault();
 
+        console.log(this.state);
         // console.log(this.state.payment);
 
         this.validateForm();
@@ -47,16 +49,37 @@ class Form extends React.Component {
         let priceMsg = (JSON.parse(this.state.payment) && this.state.price.length === 0)?
                         'Price cannot be empty' : '';
 
-        console.log('priceMsg: ' + priceMsg);
+        let dateMsg = this.validateDate(this.state.date);
+
+        // console.log('priceMsg: ' + priceMsg);
         // console.log(this.state.price);
 
         this.setState({
             titleValid: (titleMsg === ''),
             descriptionValid: (descriptionMsg === ''),
-            priceValid: (priceMsg === '')
+            priceValid: (priceMsg === ''),
+            dateValid: (dateMsg === '')
         })
     };
 
+    validateDate = (date) => {
+        let arr = date.split('-');
+        let valueY = parseInt(arr[0]);
+        let valueM = parseInt(arr[1]);
+        let valueD = parseInt(arr[2]);
+
+        let currDate = new Date();
+        let currY = currDate.getFullYear();
+        let currM = currDate.getMonth() + 1;
+        let currD = currDate.getDate();
+
+        if (valueY >= currY && valueM >= currM && valueD >= currD) {
+            return '';
+        } else {
+            return 'Date cannot be prior to the actual date';
+        }
+
+    };
 
     render() {
         return <div className="container">
@@ -72,8 +95,9 @@ class Form extends React.Component {
                            titleValid={this.state.titleValid}
                            descriptionValid={this.state.descriptionValid}
                            priceValid={this.state.priceValid}/>
-                    <Coordinator/>
-                    <When/>
+                    <Coordinator handleFormChange={this.handleFormChange}/>
+                    <When handleFormChange={this.handleFormChange}
+                          dateValid={this.state.dateValid}/>
 
                     <input className="form-submit"
                            type="submit"

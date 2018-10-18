@@ -3,26 +3,22 @@ import React from "react";
 
 class When extends React.Component {
 
-    handleChange = (e) => {
-        let arr = e.target.value.split('-');
-        let valueY = parseInt(arr[0]);
-        let valueM = parseInt(arr[1]);
-        let valueD = parseInt(arr[2]);
-
-        let currDate = new Date();
-        let currY = currDate.getFullYear();
-        let currM = currDate.getMonth() + 1;
-        let currD = currDate.getDate();
-
-        if (valueY >= currY && valueM >= currM && valueD >= currD) {
-            // console.log('ok');
-        } else {
-            // console.log('nie ok');
+    handleChange = (e, element) => {
+        if (typeof this.props.handleFormChange === 'function') {
+            this.props.handleFormChange(e.target.value, element);
         }
-
-    }
+    };
 
     render() {
+        console.log(this.props.dateValid);
+
+        const dateLabelClass = this.props.dateValid ?
+                            'label' :
+                            'label error';
+        let dateInputClass = this.props.dateValid ?
+                            'input-sm input-date' :
+                            'input-sm input-date error';
+
 
         return <div className="form__section section__when">
             <div className="section__header">
@@ -31,12 +27,13 @@ class When extends React.Component {
             <div className="section__content">
 
                 <div className="section__row">
-                    <label className="label" htmlFor="date">Starts on&nbsp;<span>*</span></label>
-                    <input className="input-sm input-date"
+                    <label className={dateLabelClass}
+                           htmlFor="date">Starts on&nbsp;<span>*</span></label>
+                    <input className={dateInputClass}
                            type="date"
                            id="date"
                            required
-                           onChange={e => this.handleChange(e)}/>
+                           onChange={e => this.handleChange(e, 'date')}/>
 
                     <span className="add-text">at</span>
                     <input className="input-sm input-time"

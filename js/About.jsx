@@ -18,7 +18,6 @@ class About extends React.Component {
     handleChange = (e, element) => {
         // console.log(e.target.value, element);
 
-
         if (element === 'reward' || element === 'price') {
             const value = e.target.value.replace(/\D/g, '');
             this.setState({
@@ -26,7 +25,7 @@ class About extends React.Component {
             });
 
             if (typeof this.props.handleFormChange === 'function') {
-                this.props.handleFormChange(e.target.value.replace(/\D/g, ''), element);
+                this.props.handleFormChange(value, element);
             }
 
         } else {
@@ -69,7 +68,10 @@ class About extends React.Component {
                                 'error-msg-descr';
 
         const payment = this.state.payment;
-        const priceClass = (JSON.parse(payment)) ? "price-wrapper" : "price-wrapper display-none";
+        const priceWrapperClass = (JSON.parse(payment)) ?
+                                "price-input__wrapper" :
+                                "price-input__wrapper display-none";
+
         const priceLabelClass = this.props.priceValid ?
                                 "payment-title" :
                                 "payment-title error";
@@ -173,7 +175,7 @@ class About extends React.Component {
                     <label className="label__payment"
                            htmlFor="payment">Paid event</label>
 
-                    <span className={priceClass}>
+                    <span className={priceWrapperClass}>
                         <input className={priceInputClass}
                                type="text"
                                id="price"

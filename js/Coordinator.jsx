@@ -7,20 +7,25 @@ class Coordinator extends React.Component {
         super(props);
         this.state={
             email: employees[3].email,      //lub ''
-            loggedId: 3
+            loggedInId: 3
         }
     }
 
-    handleChange = (e) => {
+    handleChange = (e, element) => {
         let id = e.target.value;
+        console.log(element);
 
         this.setState({
             email: employees[id].email
-        })
+        });
+
+        if (typeof this.props.handleFormChange === 'function') {
+            this.props.handleFormChange(id, element);
+        }
     };
 
     render() {
-        let loggedId = this.state.loggedId;
+        let loggedId = this.state.loggedInId;
 
         let employeesMeOption = <option value={employees[loggedId].id}
                                         key={employees[loggedId].id}>
@@ -47,13 +52,13 @@ class Coordinator extends React.Component {
             <div className="section__content">
 
                 <div className="section__row">
-                    <label className="label" htmlFor="responsible">
+                    <label className="label" htmlFor="coordinator">
                         Responsible&nbsp;<span>*</span>
                     </label>
                     <select className="input-lg"
-                            name="responsible"
-                            id="responsible"
-                            onChange={e => this.handleChange(e)}>
+                            name="coordinator"
+                            id="coordinator"
+                            onChange={e => this.handleChange(e, 'coordinatorId')}>
                         <optgroup label="Me">
                             {employeesMeOption}
                         </optgroup>
