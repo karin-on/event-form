@@ -6,7 +6,7 @@ class Coordinator extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            email: '',
+            email: employees[3].email,      //lub ''
             loggedId: 3
         }
     }
@@ -39,7 +39,6 @@ class Coordinator extends React.Component {
             }
         });
 
-        // let email =
 
         return <div className="form__section section__coordinator">
             <div className="section__header">
@@ -69,8 +68,8 @@ class Coordinator extends React.Component {
                     <input className="input-lg"
                            type="email"
                            id="email"
-                           placeholder="Email"
-                           value={this.state.email}/>
+                           // placeholder="Email"
+                           value={this.state.email} readOnly/>
                 </div>
 
             </div>
