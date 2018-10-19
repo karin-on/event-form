@@ -27,7 +27,6 @@ class When extends React.Component {
     };
 
     render() {
-        // console.log(this.props.dateValid);
 
         const dateLabelClass = this.props.dateValid ?
                             'label' :
@@ -73,13 +72,13 @@ class When extends React.Component {
 
                     <input type="radio" name="time" id="am"
                            value={false}
-                           onChange={e => this.handleChange(e, 'pm')}
+                           onChange={e => this.handleChange(e, 'isPm')}
                            defaultChecked/>
                     <label className="label__payment" htmlFor="am">AM</label>
 
                     <input type="radio" name="time" id="pm"
                            value={true}
-                           onChange={e => this.handleChange(e, 'pm')}/>
+                           onChange={e => this.handleChange(e, 'isPm')}/>
                     <label className="label__payment" htmlFor="pm">PM</label>
                 </div>
 

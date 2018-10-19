@@ -13,7 +13,6 @@ class Coordinator extends React.Component {
 
     handleChange = (e, element) => {
         let id = e.target.value;
-        console.log(id);
 
         this.setState({
             email: employees[id].email,
@@ -59,7 +58,6 @@ class Coordinator extends React.Component {
                     <select className="input-lg"
                             name="coordinator"
                             id="coordinator"
-                            // value={this.state.coordinator}
                             onChange={e => this.handleChange(e, 'coordinator')}>
                         <optgroup label="Me">
                             {employeesMeOption}
@@ -75,7 +73,6 @@ class Coordinator extends React.Component {
                     <input className="input-lg"
                            type="email"
                            id="email"
-                           // placeholder="Email"
                            value={this.state.email} readOnly/>
                 </div>
 

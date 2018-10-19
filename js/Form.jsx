@@ -19,7 +19,7 @@ class Form extends React.Component {
             coordinator: this.loggedInId,
             date: '',
             time: '',
-            pm: false,
+            isPm: false,
             duration: '',
             titleValid: true,
             descriptionValid: true,
@@ -37,31 +37,27 @@ class Form extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        // console.log(this.state);
-
-        this.validateForm();
+        if (this.validateForm() && typeof this.props.isSuccess === 'function') {
+            this.props.isSuccess(this.validateForm());
+            console.log(this.createNewEvent());
+        }
     };
 
     validateForm = () => {
-
         let titleValid = this.state.title.length > 0;
         let descriptionValid = this.state.description.length > 0;
-        let priceValid = !JSON.parse(this.state.payment) ||
+        let feeValid = !JSON.parse(this.state.payment) ||
             (JSON.parse(this.state.payment) && this.state.fee.length > 0);
         let dateValid = this.validateDate();
-        let pm = JSON.parse(this.state.pm);
 
         this.setState({
             titleValid: titleValid,
             descriptionValid: descriptionValid,
-            feeValid: priceValid,
+            feeValid: feeValid,
             dateValid: dateValid
         });
 
-        if (typeof this.props.isSuccess === 'function') {
-            this.props.isSuccess(titleValid && descriptionValid && priceValid && dateValid);
-            this.createNewEvent();
-        }
+        return (titleValid && descriptionValid && feeValid && dateValid);
     };
 
     createNewEvent = () => {
@@ -79,35 +75,21 @@ class Form extends React.Component {
                         parseInt(this.state.duration, 10) * 3600;
         let id = this.state.coordinator;
 
-        let obj = {
-                title: this.state.title,
-                description: this.state.description,
-                category_id: category_id,
-                paid_event: JSON.parse(this.state.payment),
-                event_fee: event_fee,
-                reward: reward,
-                date: this.state.date + 'T' + this.convertTime(), // YYYY-MM-DDTHH:mm (example: 2018-01-19T15:15)
-                duration: duration,
-                coordinator: {
-                    email: employees[id].email,
-                    id: id,
-                }
-            };
-        console.log(obj);
+        return ({
+            title: this.state.title,
+            description: this.state.description,
+            category_id: category_id,
+            paid_event: JSON.parse(this.state.payment),
+            event_fee: event_fee,
+            reward: reward,
+            date: this.state.date + 'T' + this.convertTime(),
+            duration: duration,
+            coordinator: {
+                email: employees[id].email,
+                id: id,
+            }
+        });
     };
-
-    convertTime = () => {
-        if (!this.state.pm) {
-            return this.state.time;
-        }
-
-        let am = this.state.time.slice(0,2);
-        let left = this.state.time.slice(2);
-        let pm = (Number(am) + 12).toString();
-
-        return pm + left;
-    };
-
 
     validateDate = () => {
         let arr = this.state.date.split('-');
@@ -122,6 +104,19 @@ class Form extends React.Component {
 
         return (valueY >= currY && valueM >= currM && valueD >= currD);
     };
+
+    convertTime = () => {
+        if (!this.state.isPm) {
+            return this.state.time;
+        }
+
+        let am = this.state.time.slice(0,2);
+        let left = this.state.time.slice(2);
+        let pm = (Number(am) + 12).toString();
+
+        return pm + left;
+    };
+
 
     render() {
 

@@ -16,7 +16,6 @@ class About extends React.Component {
     }
 
     handleChange = (e, element) => {
-        // console.log(e.target.value, element);
 
         if (element === 'reward' || element === 'fee') {
             const value = e.target.value.replace(/\D/g, '');
@@ -45,7 +44,6 @@ class About extends React.Component {
             return <option value={el.id} key={el.id}>{el.name}</option>
         });
 
-        // console.log(this.props.titleValid);
 
         const titleLabelClass = this.props.titleValid ?
                             'label' :
