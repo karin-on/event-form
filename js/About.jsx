@@ -111,7 +111,7 @@ class About extends React.Component {
                     </div>
                 </div>
 
-                <div className="section__row">
+                <div className="section__row row__description">
                     <label className={descriptionLabelClass}
                            htmlFor="description">
                         Description&nbsp;<span>*</span>
@@ -135,8 +135,8 @@ class About extends React.Component {
                     </div>
                 </div>
 
-                <div className="section__row">
-                    <label className="label"
+                <div className="section__row row__category">
+                    <label className="label label__category"
                            htmlFor="category">Category</label>
 
                     <div className="select-category__wrapper">
@@ -157,7 +157,7 @@ class About extends React.Component {
                     </div>
                 </div>
 
-                <div className="section__row row-3">
+                <div className="section__row row__payment">
                     <span className={feeLabelClass}>Payment&nbsp;<span>*</span></span>
                     <input type="radio"
                            name="payment"

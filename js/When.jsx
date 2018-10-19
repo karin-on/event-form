@@ -70,16 +70,18 @@ class When extends React.Component {
                            required
                            onChange={e => this.handleChange(e, 'time')}/>
 
-                    <input type="radio" name="time" id="am"
+                    <input className="radio__time"
+                           type="radio" name="time" id="am"
                            value={false}
                            onChange={e => this.handleChange(e, 'isPm')}
                            defaultChecked/>
-                    <label className="label__payment" htmlFor="am">AM</label>
+                    <label className="label__time" htmlFor="am">AM</label>
 
-                    <input type="radio" name="time" id="pm"
+                    <input className="radio__time"
+                           type="radio" name="time" id="pm"
                            value={true}
                            onChange={e => this.handleChange(e, 'isPm')}/>
-                    <label className="label__payment" htmlFor="pm">PM</label>
+                    <label className="label__time" htmlFor="pm">PM</label>
                 </div>
 
                 <div className="section__row">
