@@ -39,7 +39,7 @@ class Form extends React.Component {
 
         if (this.validateForm() && typeof this.props.isSuccess === 'function') {
             this.props.isSuccess(this.validateForm());
-            console.log(this.createNewEvent());
+            console.log(this.createEvent());
         }
     };
 
@@ -60,7 +60,7 @@ class Form extends React.Component {
         return (titleValid && descriptionValid && feeValid && dateValid);
     };
 
-    createNewEvent = () => {
+    createEvent = () => {
         let category_id = this.state.category === '' ?
                         null :
                         parseInt(this.state.category);
