@@ -1,8 +1,8 @@
 import React from "react";
 
-import {About} from "./About.jsx";
-import {Coordinator} from "./Coordinator.jsx";
-import {When} from "./When.jsx";
+import {About} from "../About/About.jsx";
+import {Coordinator} from "../Coordinator/Coordinator.jsx";
+import {When} from "../When/When.jsx";
 import employees from "../../../data/employees";
 
 class Form extends React.Component {
