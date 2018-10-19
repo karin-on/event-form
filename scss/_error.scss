@@ -1,0 +1,81 @@
+@import "variables";
+
+.label.error,
+.payment-title.error {
+  color: rgba(red, 0.4);
+}
+
+.input-sm.error,
+.input-lg.error {
+  border: 1px solid rgba(red, 0.3);
+}
+
+.error-msg-title,
+.error-msg-descr,
+.error-msg-fee,
+.error-msg-date {
+  position: absolute;
+  display: inline-block;
+  font-size: 14px;
+  background: $color-error;
+  border-radius: 3px;
+  color: white;
+  padding: 3px 9px;
+  font-weight: 100;
+
+  .caret {
+    position: absolute;
+    color: $color-error;
+    transform: scale(1.2);
+  }
+}
+
+.error-msg-title {
+  width: 145px;
+  height: 25px;
+  top: 5px;
+  right: -157px;
+
+  .caret {
+    left: -5px;
+    top: 5px;
+  }
+}
+
+.error-msg-descr {
+  width: 145px;
+  height: 40px;
+  top: 49px;
+  right: -157px;
+
+  .caret {
+    left: -5px;
+    top: 12px;
+  }
+}
+
+.error-msg-fee {
+  width: 145px;
+  height: 25px;
+  top: 5px;
+  right: -307px;
+
+  .caret {
+    left: -5px;
+    top: 5px;
+  }
+}
+
+.error-msg-date {
+  width: 145px;
+  height: 40px;
+  top: -3px;
+  right: -399px;
+
+  .caret {
+    left: -5px;
+    top: 12px;
+  }
+}
+
+
