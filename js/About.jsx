@@ -140,15 +140,17 @@ class About extends React.Component {
                            htmlFor="category">Category</label>
 
                     <div className="select-category__wrapper">
-                        <select className="input-lg"
-                                name="category"
-                                id="category"
-                                value={this.state.category}
-                                onChange={e => this.handleChange(e, 'category')}>
 
-                            <option value="">Select category (skills, interests, locations)</option>
+                        <span className="custom-select">
+                            <select name="category"
+                                    id="category"
+                                    value={this.state.category}
+                                    onChange={e => this.handleChange(e, 'category')}>
+
+                            <option>Select category (skills, interests, locations)</option>
                             {categoriesOptions}
-                        </select>
+                            </select>
+                        </span>
                         <span className="input-descr__note">
                             Describes topic and people who should be interested in this event
                         </span>

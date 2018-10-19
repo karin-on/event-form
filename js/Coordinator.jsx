@@ -55,22 +55,24 @@ class Coordinator extends React.Component {
                     <label className="label" htmlFor="coordinator">
                         Responsible&nbsp;<span>*</span>
                     </label>
-                    <select className="input-lg"
-                            name="coordinator"
-                            id="coordinator"
-                            onChange={e => this.handleChange(e, 'coordinator')}>
-                        <optgroup label="Me">
-                            {employeesMeOption}
-                        </optgroup>
-                        <optgroup label="Others">
-                            {employeesOtherOptions}
-                        </optgroup>
-                    </select>
+
+                    <span className="custom-select">
+                        <select name="coordinator"
+                                id="coordinator"
+                                onChange={e => this.handleChange(e, 'coordinator')}>
+                            <optgroup label="Me">
+                                {employeesMeOption}
+                            </optgroup>
+                            <optgroup label="Others">
+                                {employeesOtherOptions}
+                            </optgroup>
+                        </select>
+                    </span>
                 </div>
 
                 <div className="section__row">
                     <label className="label" htmlFor="email">Email</label>
-                    <input className="input-lg"
+                    <input className="input-lg input__read-only"
                            type="email"
                            id="email"
                            value={this.state.email} readOnly/>

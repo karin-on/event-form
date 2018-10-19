@@ -33,6 +33,7 @@ body {
 
 .header__title {
   color: white;
+  font-size: 33px;
   font-weight: 100;
   //font-size: 2.1em;
 }
@@ -78,7 +79,12 @@ body {
 .section__header {
   color: #355990;
   border-bottom: 1px solid rgba(black, 0.15);
-  margin-bottom: 15px;
+  margin-bottom: 24px;
+}
+
+.section__title {
+  font-weight: 100;
+  margin-bottom: 10px;
 }
 
 .section__content {
@@ -86,7 +92,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 23px;
+  padding-bottom: 24px;
 }
 
 .section__row {
@@ -139,6 +145,27 @@ body {
   }
 }
 
+.custom-select {
+  display: inline-block;
+  width: 449px;
+  height: 34px;
+  border: 1px solid rgba(black, 0.15);
+  border-radius: 2px;
+  //color: rgba(black, 0.5);
+  font-size: 16px;
+  //outline: initial;
+
+  select {
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    background: white;
+    border: none;
+    color: rgba(black, 0.5);
+    //outline: none;
+  }
+}
+
 .input-title__wrapper,
 .input-descr__wrapper {
   display: inline-block;
@@ -172,6 +199,10 @@ body {
   right: 0;
 }
 
+.input__read-only {
+  color: rgba(black, 0.2);
+}
+
 .select-category__wrapper {
   display: inline-block;
   height: 52px;
@@ -184,6 +215,47 @@ select {
 
 [type="radio"] {
   cursor: pointer;
+  position: relative;
+  width: 6px;
+  height: 6px;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -34%);
+    width: 7px;
+    height: 7px;
+    border: 1px solid #9fb2cd;
+    border-radius: 50%;
+    background: #9fb2cd;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  &:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 14px;
+    height: 14px;
+    border: 1px solid #9fb2cd;
+    border-radius: 50%;
+    background: white;
+    //opacity: 0;
+  }
+
+  &:checked {
+    &:before {
+      opacity: 1;
+    }
+  }
+
 }
 
 .input-sm {
@@ -254,7 +326,7 @@ select {
   background: #f0fcf3;
   border-radius: 2px;
   box-shadow: 0 0 7px 1px rgba(black, 0.08);
-  padding: 0 40px;
+  padding: 20px 40px;
 }
 
 .success__header {
@@ -263,6 +335,10 @@ select {
 
 .success__title {
   color: #71bf75;
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  font-weight: 100;
 }
 
 //----------------------------- ERROR -------------------------
