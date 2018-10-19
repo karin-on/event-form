@@ -1,6 +1,6 @@
 import React from "react";
 
-import categories from "../data/categories";
+import categories from "../../../data/categories";
 
 class About extends React.Component {
     constructor(props) {

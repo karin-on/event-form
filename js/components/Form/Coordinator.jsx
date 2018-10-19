@@ -1,6 +1,6 @@
 import React from "react";
 
-import employees from "../data/employees";
+import employees from "../../../data/employees";
 
 class Coordinator extends React.Component {
     constructor(props) {

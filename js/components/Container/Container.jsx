@@ -1,7 +1,7 @@
 import React from "react";
 
-import {Form} from "./Form.jsx";
-import {Success} from "./Success.jsx";
+import {Form} from "../Form/Form.jsx";
+import {Success} from "../Success/Success.jsx";
 
 
 class Container extends React.Component {

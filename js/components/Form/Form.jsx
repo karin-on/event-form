@@ -3,7 +3,7 @@ import React from "react";
 import {About} from "./About.jsx";
 import {Coordinator} from "./Coordinator.jsx";
 import {When} from "./When.jsx";
-import employees from "../data/employees";
+import employees from "../../../data/employees";
 
 class Form extends React.Component {
     constructor(props) {

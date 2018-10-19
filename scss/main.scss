@@ -1,9 +1,9 @@
 @import "normalize";
 //@import "variables";
 @import "general";
-@import "Container";
-@import "Form";
-@import "Success";
+@import "../js/components/Container/Container";
+@import "../js/components/Form/Form";
+@import "../js/components/Success/Success";
 
 @import "error";
 @import "special";

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import '../scss/main.scss';
 
-import {Container} from "./Container.jsx";
+import {Container} from "./components/Container/Container.jsx";
 
 
 class App extends React.Component {
