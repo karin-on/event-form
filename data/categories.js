@@ -1,31 +1,31 @@
 module.exports = [
     {
         id: 0,
-        name: "Cycling"
+        name: "Rowery"
     },
     {
         id: 1,
-        name: "Hiking"
+        name: "Chodzenie po górach"
     },
     {
         id: 2,
-        name: "Cooking"
+        name: "Gotowanie"
     },
     {
         id: 3,
-        name: "Rock climbing"
+        name: "Wspinaczka"
     },
     {
         id: 4,
-        name: "Yoga"
+        name: "Joga"
     },
     {
         id: 5,
-        name: "Fencing"
+        name: "Szermierka"
     },
     {
         id: 6,
-        name: "Swimming"
+        name: "Pływanie"
     },
     {
         id: 7,
@@ -33,10 +33,10 @@ module.exports = [
     },
     {
         id: 8,
-        name: "Running"
+        name: "Bieganie"
     },
     {
         id: 9,
-        name: "Dance"
+        name: "Taniec"
     }
 ];
