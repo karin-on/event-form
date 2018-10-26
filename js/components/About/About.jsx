@@ -182,7 +182,7 @@ class About extends React.Component {
                                placeholder="Fee"
                                value={this.state.fee}
                                onChange={e => this.handleChange(e, 'fee')}/>
-                        <span className="add-text">$</span>
+                        <span className="success__info">$</span>
 
                         <span className={feeMsgClass}>
                             Fee cannot be empty
@@ -202,7 +202,7 @@ class About extends React.Component {
                            placeholder="Number"
                            value={this.state.reward}
                            onChange={e => this.handleChange(e, 'reward')}/>
-                    <span className="add-text">rewards points for attendance</span>
+                    <span className="success__info">rewards points for attendance</span>
                 </div>
             </div>
         </div>

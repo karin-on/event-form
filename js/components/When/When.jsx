@@ -63,7 +63,7 @@ class When extends React.Component {
                         </span>
                     </span>
 
-                    <span className="add-text">at</span>
+                    <span className="success__info">at</span>
                     <input className="input-sm input-time"
                            type="time"
                            id="time" min="00:00" max="11:59"
@@ -92,7 +92,7 @@ class When extends React.Component {
                            placeholder="Number"
                            value={this.state.duration}
                            onChange={e => this.handleChange(e, 'duration')}/>
-                    <span className="add-text">hour</span>
+                    <span className="success__info">hour</span>
                 </div>
 
             </div>
