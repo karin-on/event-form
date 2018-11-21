@@ -13,9 +13,9 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 23px;
-  background: $color-main-bg;
+  background: $color-wh;
   border-radius: 2px;
-  box-shadow: 0 0 7px 1px rgba(black, 0.08);
+  box-shadow: 0 0 7px 1px rgba($color-bck, 0.08);
   padding: 0 40px;
 }
 
@@ -33,7 +33,7 @@
 
 .section__header {
   color: $color-header-bg;
-  border-bottom: 1px solid rgba(black, 0.15);
+  border-bottom: 1px solid rgba($color-bck, 0.15);
   margin-bottom: 24px;
 }
 
@@ -74,7 +74,7 @@
   font-size: 14px;
 
   span {
-    color: rgba(red, 0.3);
+    color: rgba($color-red, 0.3);
   }
 }
 
@@ -89,22 +89,22 @@
 .label__payment,
 .label__time {
   margin: 0 12px;
-  color: rgba(black, 0.5);
+  color: rgba($color-bck, 0.5);
   font-size: 16px;
 }
 
 .input-lg {
   width: 449px;
   height: 34px;
-  border: 1px solid rgba(black, 0.15);
+  border: 1px solid rgba($color-bck, 0.15);
   border-radius: 2px;
   padding: 0 12px;
-  color: rgba(black, 0.5);
+  color: rgba($color-bck, 0.5);
   font-size: 16px;
 
   &::placeholder {
     font-size: 15px;
-    color: rgba(black, 0.2);
+    color: rgba($color-bck, 0.2);
   }
 }
 
@@ -112,7 +112,7 @@
   display: inline-block;
   width: 449px;
   height: 34px;
-  border: 1px solid rgba(black, 0.15);
+  border: 1px solid rgba($color-bck, 0.15);
   border-radius: 2px;
   font-size: 16px;
 
@@ -120,9 +120,9 @@
     width: 100%;
     height: 100%;
     font-size: 15px;
-    background: $color-main-bg;
+    background: $color-wh;
     border: none;
-    color: rgba(black, 0.5);
+    color: rgba($color-bck, 0.5);
   }
 }
 
@@ -146,7 +146,7 @@
 .input-descr__char {
   font-size: 12px;
   font-style: italic;
-  color: rgba(black, 0.1);
+  color: rgba($color-bck, 0.1);
   position: absolute;
   bottom: 0;
 }
@@ -160,7 +160,7 @@
 }
 
 .input__read-only {
-  color: rgba(black, 0.2);
+  color: rgba($color-bck, 0.2);
 }
 
 .select-category__wrapper {
@@ -207,7 +207,7 @@ select {
     height: 14px;
     border: 1px solid $color-label;
     border-radius: 50%;
-    background: $color-main-bg;
+    background: $color-wh;
   }
 
   &:checked {
@@ -220,16 +220,16 @@ select {
 .input-sm {
   width: 78px;
   height: 34px;
-  border: 1px solid rgba(black, 0.15);
+  border: 1px solid rgba($color-bck, 0.15);
   border-radius: 2px;
   padding: 0 12px;
   margin-right: 18px;
-  color: rgba(black, 0.5);
+  color: rgba($color-bck, 0.5);
   font-size: 16px;
 
   &::placeholder {
     font-size: 15px;
-    color: rgba(black, 0.2);
+    color: rgba($color-bck, 0.2);
   }
 }
 
@@ -254,7 +254,7 @@ select {
 }
 
 .success__info {
-  color: rgba(black, 0.5);
+  color: rgba($color-bck, 0.5);
   font-size: 16px;
 }
 
@@ -263,7 +263,7 @@ select {
   height: 50px;
   border-radius: 2px;
   background: $color-submit;
-  color: $color-font-wh;
+  color: $color-wh;
   text-transform: uppercase;
   font-size: 95%;
   font-weight: 300;
