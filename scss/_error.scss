@@ -19,7 +19,7 @@
   font-size: 14px;
   background: $color-error;
   border-radius: 3px;
-  color: white;
+  color: $color-font-wh;
   padding: 3px 9px;
   font-weight: 100;
 
@@ -58,7 +58,7 @@
   width: 145px;
   height: 25px;
   top: 5px;
-  right: -307px;
+  right: -298px;
 
   .caret {
     left: -5px;

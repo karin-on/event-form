@@ -26,11 +26,8 @@ class Container extends React.Component {
             </div>
 
             <div className="content">
-
                 {this.state.success ? <Success/> : <Form isSuccess={this.isSuccess}/>}
-
             </div>
-
         </div>
     }
 }

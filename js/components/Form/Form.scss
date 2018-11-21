@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 23px;
-  background: #ffffff;
+  background: $color-main-bg;
   border-radius: 2px;
   box-shadow: 0 0 7px 1px rgba(black, 0.08);
   padding: 0 40px;
@@ -120,7 +120,7 @@
     width: 100%;
     height: 100%;
     font-size: 15px;
-    background: white;
+    background: $color-main-bg;
     border: none;
     color: rgba(black, 0.5);
   }
@@ -207,7 +207,7 @@ select {
     height: 14px;
     border: 1px solid $color-label;
     border-radius: 50%;
-    background: white;
+    background: $color-main-bg;
   }
 
   &:checked {
@@ -263,7 +263,7 @@ select {
   height: 50px;
   border-radius: 2px;
   background: $color-submit;
-  color: white;
+  color: $color-font-wh;
   text-transform: uppercase;
   font-size: 95%;
   font-weight: 300;
