@@ -127,7 +127,7 @@ class About extends React.Component {
                         <span className="input-descr__char">{descrLength}/140</span>
 
                         <span className={descriptionMsgClass}>
-                            Description cannot be empty
+                            Description cannot be empty or exceed 140 characters
                             <span className="caret">
                                 <i className="fa fa-caret-left" aria-hidden="true"></i>
                             </span>

@@ -45,7 +45,7 @@ class Form extends React.Component {
 
     validateForm = () => {
         let titleValid = this.state.title.length > 0;
-        let descriptionValid = this.state.description.length > 0;
+        let descriptionValid = this.state.description.length > 0 && this.state.description.length <= 140;
         let feeValid = !JSON.parse(this.state.payment) ||
             (JSON.parse(this.state.payment) && this.state.fee.length > 0);
         let dateValid = this.validateDate();
