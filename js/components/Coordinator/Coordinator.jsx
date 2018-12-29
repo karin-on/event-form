@@ -57,7 +57,8 @@ class Coordinator extends React.Component {
                     </label>
 
                     <span className="custom-select">
-                        <select name="coordinator"
+                        <select className="coordinator"
+                                name="coordinator"
                                 id="coordinator"
                                 onChange={e => this.handleChange(e, 'coordinator')}>
                             <optgroup label="Me">
@@ -67,6 +68,9 @@ class Coordinator extends React.Component {
                                 {employeesOtherOptions}
                             </optgroup>
                         </select>
+                        <span className="custom-select__arrow">
+                            <i className="fa fa-caret-down fa-lg" aria-hidden="true"></i>
+                        </span>
                     </span>
                 </div>
 

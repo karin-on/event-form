@@ -150,6 +150,9 @@ class About extends React.Component {
                             <option>Select category (skills, interests, locations)</option>
                             {categoriesOptions}
                             </select>
+                            <span className="custom-select__arrow">
+                                <i className="fa fa-caret-down fa-lg" aria-hidden="true"></i>
+                            </span>
                         </span>
                         <span className="input-descr__note">
                             Describes topic and people who should be interested in this event

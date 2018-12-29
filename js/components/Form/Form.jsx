@@ -48,7 +48,7 @@ class Form extends React.Component {
         let descriptionValid = this.state.description.length > 0 && this.state.description.length <= 140;
         let feeValid = !JSON.parse(this.state.payment) ||
             (JSON.parse(this.state.payment) && this.state.fee.length > 0);
-        let dateValid = this.validateDate();
+        let dateValid = this.state.date.length > 0 && this.validateDate();
 
         this.setState({
             titleValid: titleValid,
@@ -133,7 +133,7 @@ class Form extends React.Component {
             <When handleFormChange={this.handleFormChange}
                   dateValid={this.state.dateValid}/>
 
-            <input className="form-submit"
+            <input onClick={this.validateForm} className="form-submit"
                    type="submit"
                    value="Publish event"/>
 

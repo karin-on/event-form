@@ -56,7 +56,7 @@ class When extends React.Component {
                                onChange={e => this.handleChange(e, 'date')}/>
 
                         <span className={dateMsgClass}>
-                            Date cannot be prior to the actual date
+                            Date cannot be empty or prior to the actual date
                             <span className="caret">
                                 <i className="fa fa-caret-left" aria-hidden="true"></i>
                             </span>
