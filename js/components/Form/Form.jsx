@@ -110,7 +110,9 @@ class Form extends React.Component {
         let currM = currDate.getMonth() + 1;
         let currD = currDate.getDate();
 
-        return (valueY >= currY && valueM >= currM && valueD >= currD);
+        return (valueY > currY ||
+                (valueY === currY && valueM > currM) ||
+                (valueY === currY && valueM === currM && valueD >= currD));
     };
 
     convertTime = () => {
