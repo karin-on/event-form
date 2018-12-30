@@ -16,23 +16,26 @@ class Form extends React.Component {
             payment: false,
             fee: '',
             reward: '',
+
             coordinator: this.loggedInId,
             date: '',
             time: '',
             isPm: false,
             duration: '',
+
             titleValid: true,
             descriptionValid: true,
             feeValid: true,
+
             dateValid: true
         }
     }
 
     handleFormChange = (e, element) => {
-        if (element === 'duration') {
+        if (element === 'reward' || element === 'fee' || element === 'duration') {
             const value = e.target.value.replace(/\D/g, '');
             this.setState({
-                duration: value
+                [element]: value
             });
 
         } else {
@@ -132,9 +135,12 @@ class Form extends React.Component {
         return <form className="form" onSubmit={this.handleSubmit}>
 
             <About handleFormChange={this.handleFormChange}
-                   titleValid={this.state.titleValid}
-                   descriptionValid={this.state.descriptionValid}
-                   feeValid={this.state.feeValid}/>
+                   // titleValid={this.state.titleValid}
+                   // descriptionValid={this.state.descriptionValid}
+                   // feeValid={this.state.feeValid}
+
+                    state={this.state}
+            />
 
             <Coordinator loggedInId={this.loggedInId}
                          handleFormChange={this.handleFormChange}/>
