@@ -30,9 +30,9 @@ class Form extends React.Component {
 
     handleFormChange = (e, element) => {
         if (element === 'duration') {
-            const numValue = e.target.value.replace(/\D/g, '');
+            const value = e.target.value.replace(/\D/g, '');
             this.setState({
-                duration: numValue
+                duration: value
             });
 
         } else {
