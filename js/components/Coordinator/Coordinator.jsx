@@ -6,26 +6,27 @@ class Coordinator extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            email: employees[this.props.loggedInId].email,
-            coordinator: this.props.loggedInId
+            // email: employees[this.props.loggedInId].email,
+            // coordinator: this.props.loggedInId
         }
     }
 
     handleChange = (e, element) => {
-        let id = e.target.value;
-
-        this.setState({
-            email: employees[id].email,
-            coordinator: id
-        });
+        // let id = e.target.value;
+        //
+        // this.setState({
+        //     email: employees[id].email,
+        //     coordinator: id
+        // });
 
         if (typeof this.props.handleFormChange === 'function') {
-            this.props.handleFormChange(id, element);
+            this.props.handleFormChange(e, element);
         }
     };
 
     render() {
         let loggedId = this.props.loggedInId;
+        let email = employees[this.props.coordinator].email;
 
         let employeesMeOption = <option value={employees[loggedId].id}
                                         key={employees[loggedId].id}>
@@ -79,7 +80,7 @@ class Coordinator extends React.Component {
                     <input className="input-lg input__read-only"
                            type="email"
                            id="email"
-                           value={this.state.email} readOnly/>
+                           value={email} readOnly/>
                 </div>
 
             </div>

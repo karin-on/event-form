@@ -8,7 +8,7 @@ import employees from "../../../data/employees";
 class Form extends React.Component {
     constructor(props) {
         super(props);
-        this.loggedInId = '3';
+        this.loggedInId = '2';
         this.state={
             title: '',
             description: '',
@@ -18,6 +18,7 @@ class Form extends React.Component {
             reward: '',
 
             coordinator: this.loggedInId,
+
             date: '',
             time: '',
             isPm: false,
@@ -142,7 +143,9 @@ class Form extends React.Component {
                     state={this.state}
             />
 
-            <Coordinator loggedInId={this.loggedInId}
+            <Coordinator
+                loggedInId={this.loggedInId}
+                         coordinator={this.state.coordinator}
                          handleFormChange={this.handleFormChange}/>
 
             <When duration={this.state.duration}
