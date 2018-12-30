@@ -16,18 +16,14 @@ class Form extends React.Component {
             payment: false,
             fee: '',
             reward: '',
-
             coordinator: this.loggedInId,
-
             date: '',
             time: '',
             isPm: false,
             duration: '',
-
             titleValid: true,
             descriptionValid: true,
             feeValid: true,
-
             dateValid: true
         }
     }
@@ -44,7 +40,6 @@ class Form extends React.Component {
                 [element]: e.target.value
             });
         }
-
     };
 
     handleSubmit = (event) => {
@@ -136,15 +131,9 @@ class Form extends React.Component {
         return <form className="form" onSubmit={this.handleSubmit}>
 
             <About handleFormChange={this.handleFormChange}
-                   // titleValid={this.state.titleValid}
-                   // descriptionValid={this.state.descriptionValid}
-                   // feeValid={this.state.feeValid}
+                   state={this.state}/>
 
-                    state={this.state}
-            />
-
-            <Coordinator
-                loggedInId={this.loggedInId}
+            <Coordinator loggedInId={this.loggedInId}
                          coordinator={this.state.coordinator}
                          handleFormChange={this.handleFormChange}/>
 

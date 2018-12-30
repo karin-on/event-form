@@ -3,13 +3,13 @@ import React from "react";
 import employees from "../../../data/employees";
 
 class Coordinator extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state={
-            // email: employees[this.props.loggedInId].email,
-            // coordinator: this.props.loggedInId
-        }
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state={
+    //         // email: employees[this.props.loggedInId].email,
+    //         // coordinator: this.props.loggedInId
+    //     }
+    // }
 
     handleChange = (e, element) => {
         // let id = e.target.value;

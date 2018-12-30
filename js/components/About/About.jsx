@@ -44,7 +44,6 @@ class About extends React.Component {
     };
 
     render() {
-        // console.log(this.props.state);
 
         const descrLength = this.props.state.description.length;
         const categoriesOptions = categories.map(el => {
