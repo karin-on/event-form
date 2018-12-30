@@ -28,10 +28,19 @@ class Form extends React.Component {
         }
     }
 
-    handleFormChange = (value, element) => {
-        this.setState({
-            [element]: value
-        });
+    handleFormChange = (e, element) => {
+        if (element === 'duration') {
+            const numValue = e.target.value.replace(/\D/g, '');
+            this.setState({
+                duration: numValue
+            });
+
+        } else {
+            this.setState({
+                [element]: e.target.value
+            });
+        }
+
     };
 
     handleSubmit = (event) => {
@@ -130,7 +139,8 @@ class Form extends React.Component {
             <Coordinator loggedInId={this.loggedInId}
                          handleFormChange={this.handleFormChange}/>
 
-            <When handleFormChange={this.handleFormChange}
+            <When duration={this.state.duration}
+                  handleFormChange={this.handleFormChange}
                   dateValid={this.state.dateValid}/>
 
             <input onClick={this.validateForm} className="form-submit"

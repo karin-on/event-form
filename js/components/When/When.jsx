@@ -2,27 +2,30 @@ import React from "react";
 
 
 class When extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state={
-            duration: ''
-        }
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state={
+    //         duration: this.props.duration
+    //     }
+    // }
 
     handleChange = (e, element) => {
-        if (element === 'duration') {
-            const value = e.target.value.replace(/\D/g, '');
-            this.setState({
-                [element]: value
-            });
+        // if (element === 'duration') {
+        //     const value = e.target.value.replace(/\D/g, '');
+        //     this.setState({
+        //         [element]: value
+        //     });
+        //
+        //     if (typeof this.props.handleFormChange === 'function') {
+        //         this.props.handleFormChange(value, element);
+        //     }
+        // }
 
-            if (typeof this.props.handleFormChange === 'function') {
-                this.props.handleFormChange(value, element);
-            }
-        }
+        // console.log(e.target.value);
+        // console.log(element);
 
         if (typeof this.props.handleFormChange === 'function') {
-            this.props.handleFormChange(e.target.value, element);
+            this.props.handleFormChange(e, element);
         }
     };
 
@@ -90,7 +93,7 @@ class When extends React.Component {
                            type="text"
                            id="duration"
                            placeholder="Number"
-                           value={this.state.duration}
+                           value={this.props.duration}
                            onChange={e => this.handleChange(e, 'duration')}/>
                     <span className="success__info">hour</span>
                 </div>
