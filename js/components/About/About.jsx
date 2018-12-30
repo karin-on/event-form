@@ -97,7 +97,7 @@ class About extends React.Component {
                 <div className="section__row">
                     <label className={titleLabelClass}
                            htmlFor="title">
-                        Title&nbsp;<span>*</span>
+                        Title&nbsp;<span className="label-star">*</span>
                     </label>
 
                     <div className="input-title__wrapper">
@@ -120,7 +120,7 @@ class About extends React.Component {
                 <div className="section__row row__description">
                     <label className={descriptionLabelClass}
                            htmlFor="description">
-                        Description&nbsp;<span>*</span>
+                        Description&nbsp;<span className="label-star">*</span>
                     </label>
 
                     <div className="input-descr__wrapper">
@@ -148,7 +148,8 @@ class About extends React.Component {
                     <div className="select-category__wrapper">
 
                         <span className="custom-select">
-                            <select name="category"
+                            <select className="select"
+                                    name="category"
                                     id="category"
                                     value={this.props.state.category}
                                     onChange={e => this.handleChange(e, 'category')}>
@@ -167,8 +168,9 @@ class About extends React.Component {
                 </div>
 
                 <div className="section__row row__payment">
-                    <span className={feeLabelClass}>Payment&nbsp;<span>*</span></span>
-                    <input type="radio"
+                    <span className={feeLabelClass}>Payment&nbsp;<span className="label-star">*</span></span>
+                    <input className="radio"
+                           type="radio"
                            name="payment"
                            id="payment-free"
                            value={false}
@@ -176,7 +178,8 @@ class About extends React.Component {
                     <label className="label__payment"
                            htmlFor="payment">Free event</label>
 
-                    <input type="radio"
+                    <input className="radio"
+                           type="radio"
                            name="payment"
                            id="payment-paid"
                            value={true}

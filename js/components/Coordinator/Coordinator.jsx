@@ -54,11 +54,11 @@ class Coordinator extends React.Component {
 
                 <div className="section__row">
                     <label className="label" htmlFor="coordinator">
-                        Responsible&nbsp;<span>*</span>
+                        Responsible&nbsp;<span className="label-star">*</span>
                     </label>
 
                     <span className="custom-select">
-                        <select className="coordinator"
+                        <select className="select coordinator"
                                 name="coordinator"
                                 id="coordinator"
                                 onChange={e => this.handleChange(e, 'coordinator')}>

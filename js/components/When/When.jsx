@@ -50,7 +50,7 @@ class When extends React.Component {
 
                 <div className="section__row">
                     <label className={dateLabelClass}
-                           htmlFor="date">Starts on&nbsp;<span>*</span></label>
+                           htmlFor="date">Starts on&nbsp;<span className="label-star">*</span></label>
                     <span className="input-sm__wrapper">
                         <input className={dateInputClass}
                                type="date"
@@ -73,14 +73,14 @@ class When extends React.Component {
                            required
                            onChange={e => this.handleChange(e, 'time')}/>
 
-                    <input className="radio__time"
+                    <input className="radio {/*radio__time*/}"
                            type="radio" name="time" id="am"
                            value={false}
                            onChange={e => this.handleChange(e, 'isPm')}
                            defaultChecked/>
                     <label className="label__time" htmlFor="am">AM</label>
 
-                    <input className="radio__time"
+                    <input className="radio {/*radio__time*/}"
                            type="radio" name="time" id="pm"
                            value={true}
                            onChange={e => this.handleChange(e, 'isPm')}/>
