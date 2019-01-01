@@ -388,8 +388,8 @@ body {
   text-transform: uppercase;
   color: #9fb2cd;
   font-size: 14px; }
-  .label span,
-  .payment-title span {
+  .label .label-star,
+  .payment-title .label-star {
     color: rgba(255, 0, 0, 0.3); }
 
 .label__description {
@@ -427,7 +427,7 @@ body {
   border-radius: 2px;
   font-size: 16px;
   position: relative; }
-  .custom-select select {
+  .custom-select .select {
     -webkit-appearance: none;
     -moz-appearance: none;
     width: 100%;
@@ -437,7 +437,7 @@ body {
     border: none;
     color: rgba(0, 0, 0, 0.2);
     padding: 0 12px; }
-    .custom-select select.coordinator {
+    .custom-select .select.coordinator {
       color: rgba(0, 0, 0, 0.5); }
   .custom-select .custom-select__arrow {
     position: absolute;
@@ -481,16 +481,16 @@ body {
   height: 52px;
   position: relative; }
 
-select {
+.select {
   cursor: pointer; }
 
-[type="radio"] {
+.radio {
   cursor: pointer;
   position: relative;
   width: 6px;
   height: 6px;
   margin: 0 3px; }
-  [type="radio"]:before {
+  .radio:before {
     content: '';
     display: inline-block;
     position: absolute;
@@ -504,7 +504,7 @@ select {
     background: #9fb2cd;
     opacity: 0;
     z-index: 1; }
-  [type="radio"]:after {
+  .radio:after {
     content: '';
     display: inline-block;
     position: absolute;
@@ -516,7 +516,7 @@ select {
     border: 1px solid #9fb2cd;
     border-radius: 50%;
     background: #ffffff; }
-  [type="radio"]:checked:before {
+  .radio:checked:before {
     opacity: 1; }
 
 .input-sm {
@@ -550,6 +550,9 @@ select {
   margin-left: 18px;
   cursor: pointer;
   margin-right: 10px; }
+
+.input-date:required, .input-time:required {
+  box-shadow: none; }
 
 .success__info {
   color: rgba(0, 0, 0, 0.5);
