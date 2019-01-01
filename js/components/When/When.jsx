@@ -2,28 +2,8 @@ import React from "react";
 
 
 class When extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state={
-    //         duration: this.props.duration
-    //     }
-    // }
 
     handleChange = (e, element) => {
-        // if (element === 'duration') {
-        //     const value = e.target.value.replace(/\D/g, '');
-        //     this.setState({
-        //         [element]: value
-        //     });
-        //
-        //     if (typeof this.props.handleFormChange === 'function') {
-        //         this.props.handleFormChange(value, element);
-        //     }
-        // }
-
-        // console.log(e.target.value);
-        // console.log(element);
-
         if (typeof this.props.handleFormChange === 'function') {
             this.props.handleFormChange(e, element);
         }

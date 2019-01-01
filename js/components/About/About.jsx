@@ -3,41 +3,8 @@ import React from "react";
 import categories from "../../../data/categories";
 
 class About extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state={
-    //         title: '',
-    //         description: '',
-    //         category: '',
-    //         payment: false,
-    //         fee: '',
-    //         reward: ''
-    //     }
-    // }
 
     handleChange = (e, element) => {
-
-        // if (element === 'reward' || element === 'fee') {
-        //     const value = e.target.value.replace(/\D/g, '');
-        //     this.setState({
-        //         [element]: value
-        //     });
-        //
-        //     if (typeof this.props.handleFormChange === 'function') {
-        //         this.props.handleFormChange(value, element);
-        //     }
-        //
-        // } else {
-        //     this.setState({
-        //         [element]: e.target.value
-        //     });
-        //
-        //     if (typeof this.props.handleFormChange === 'function') {
-        //         this.props.handleFormChange(e.target.value, element);
-        //     }
-        // }
-
-
         if (typeof this.props.handleFormChange === 'function') {
             this.props.handleFormChange(e, element);
         }

@@ -3,22 +3,8 @@ import React from "react";
 import employees from "../../../data/employees";
 
 class Coordinator extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state={
-    //         // email: employees[this.props.loggedInId].email,
-    //         // coordinator: this.props.loggedInId
-    //     }
-    // }
 
     handleChange = (e, element) => {
-        // let id = e.target.value;
-        //
-        // this.setState({
-        //     email: employees[id].email,
-        //     coordinator: id
-        // });
-
         if (typeof this.props.handleFormChange === 'function') {
             this.props.handleFormChange(e, element);
         }
