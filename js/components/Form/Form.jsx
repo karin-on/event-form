@@ -72,7 +72,7 @@ class Form extends React.Component {
         let category_id = this.state.category === '' ?
                         null :
                         parseInt(this.state.category);
-        let event_fee = this.state.fee === '' ?
+        let event_fee = !JSON.parse(this.state.payment) ?
                         0 :
                         parseInt(this.state.fee);
         let reward = this.state.reward === '' ?
