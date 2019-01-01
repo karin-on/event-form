@@ -269,6 +269,10 @@
   margin-right: 10px;
 }
 
+.input-date:required, .input-time:required {
+  box-shadow: none;
+}
+
 .success__info {
   color: rgba($color-bck, 0.5);
   font-size: 16px;
