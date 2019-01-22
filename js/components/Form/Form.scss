@@ -2,33 +2,24 @@
 
 
 .form {
-  height: 986px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
 }
 
 .form__section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
   margin-bottom: 23px;
   background: $color-wh;
   border-radius: 2px;
   box-shadow: 0 0 7px 1px rgba($color-bck, 0.08);
-  padding: 0 40px;
+  padding: 20px 5%;
 }
 
 .section__about {
-  height: 482px;
 }
 
 .section__coordinator {
-  height: 192px;
 }
 
 .section__when {
-  height: 192px;
 }
 
 .section__header {
@@ -40,19 +31,20 @@
 .section__title {
   font-weight: 100;
   margin-bottom: 10px;
+  margin-top: 0;
 }
 
 .section__content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 24px;
 }
 
 .section__row {
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
+}
+
+.section__row:last-child {
+  margin-bottom: 0;
 }
 
 .row__description,
@@ -67,7 +59,7 @@
 .label,
 .payment-title {
   display: inline-block;
-  width: 117px;
+  width: 16%;
   font-weight: 200;
   text-transform: uppercase;
   color: $color-label;
@@ -279,6 +271,8 @@
 }
 
 .form-submit {
+  display: block;
+  margin: 0 auto;
   width: 165px;
   height: 50px;
   border-radius: 2px;

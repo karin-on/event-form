@@ -1,19 +1,15 @@
 @import "../../../scss/variables";
 
 .container {
-  width: 1056px;
-  height: 1145px;
+  width: 100%;
+  max-width: 1056px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  flex-basis: 94px;
 }
 
 .header {
-  height: 94px;
   background: $color-header-bg;
   border-top: 14px solid $color-header-bd;
-  padding: 0 168px;
+  padding: 1px 15.5%;
 }
 
 .header__title {
@@ -23,7 +19,6 @@
 }
 
 .content {
-  height: 100%;
   background: $color-bg-gray;
-  padding: 31px 127px;
+  padding: 3% 12%;
 }
