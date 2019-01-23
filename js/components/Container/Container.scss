@@ -16,9 +16,15 @@
   color: $color-wh;
   font-size: 33px;
   font-weight: 100;
+  width: 100%;
+  max-width: 802px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 4%;
+  padding-right: 4%;
 }
 
 .content {
   background: $color-bg-gray;
-  padding: 3% 12%;
+  padding: 3%;
 }

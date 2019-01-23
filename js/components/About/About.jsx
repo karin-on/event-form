@@ -62,59 +62,74 @@ class About extends React.Component {
             <div className="section__content">
 
                 <div className="section__row">
-                    <label className={titleLabelClass}
-                           htmlFor="title">
-                        Title&nbsp;<span className="label-star">*</span>
-                    </label>
 
-                    <div className="input-title__wrapper">
+                    <div className="row__col-1">
+                        <label className={titleLabelClass}
+                               htmlFor="title">
+                            Title&nbsp;<span className="label-star">*</span>
+                        </label>
+                    </div>
+
+                    <div className="row__col-2">
                         <input className={titleInputClass}
                                type="text"
                                id="title"
                                placeholder="Make it short and clear"
                                value={this.props.state.title}
                                onChange={e => this.handleChange(e, 'title')}/>
+                    </div>
 
-                        <span className={titleMsgClass}>
+                    <div className="row__col-3">
+                        <div className={titleMsgClass}>
                             Title cannot be empty
                             <span className="caret">
                                 <i className="fa fa-caret-left" aria-hidden="true"></i>
                             </span>
-                        </span>
+                        </div>
                     </div>
                 </div>
 
                 <div className="section__row row__description">
-                    <label className={descriptionLabelClass}
-                           htmlFor="description">
-                        Description&nbsp;<span className="label-star">*</span>
-                    </label>
 
-                    <div className="input-descr__wrapper">
+                    <div className="row__col-1">
+                        <label className={descriptionLabelClass}
+                               htmlFor="description">
+                            Description&nbsp;<span className="label-star">*</span>
+                        </label>
+                    </div>
+
+                    <div className="row__col-2">
                         <textarea className={descriptionAreaClass}
                                   id="description"
                                   placeholder="Write about your event, be creative"
                                   value={this.props.state.description}
                                   onChange={e => this.handleChange(e, 'description')}/>
-                        <span className="input-descr__note">Max length 140 characters</span>
-                        <span className="input-descr__char">{descrLength}/140</span>
+                        <div className="input-descr__additions">
+                            <span className="input-descr__note">Max length 140 characters</span>
+                            <span className="input-descr__char">{descrLength}/140</span>
+                        </div>
+                    </div>
 
-                        <span className={descriptionMsgClass}>
+                    <div className="row__col-3">
+                        <div className={descriptionMsgClass}>
                             Description cannot be empty or exceed 140 characters
                             <span className="caret">
                                 <i className="fa fa-caret-left" aria-hidden="true"></i>
                             </span>
-                        </span>
+                        </div>
                     </div>
                 </div>
 
                 <div className="section__row row__category">
-                    <label className="label label__category"
-                           htmlFor="category">Category</label>
+                    <div className="row__col-1">
+                        <label className="label label__category"
+                               htmlFor="category">
+                            Category
+                        </label>
+                    </div>
 
-                    <div className="select-category__wrapper">
-
-                        <span className="custom-select">
+                    <div className="row__col-2">
+                        <div className="custom-select">
                             <select className="select"
                                     name="category"
                                     id="category"
@@ -127,61 +142,81 @@ class About extends React.Component {
                             <span className="custom-select__arrow">
                                 <i className="fa fa-caret-down fa-lg" aria-hidden="true"></i>
                             </span>
-                        </span>
+                        </div>
                         <span className="input-descr__note">
                             Describes topic and people who should be interested in this event
                         </span>
                     </div>
+
                 </div>
 
                 <div className="section__row row__payment">
-                    <span className={feeLabelClass}>Payment&nbsp;<span className="label-star">*</span></span>
-                    <input className="radio"
-                           type="radio"
-                           name="payment"
-                           id="payment-free"
-                           value={false}
-                           onChange={e => this.handleChange(e, 'payment')} defaultChecked/>
-                    <label className="label__payment"
-                           htmlFor="payment">Free event</label>
+                    <div className="row__col-1">
+                        <span className={feeLabelClass}>
+                            Payment&nbsp;<span className="label-star">*</span>
+                        </span>
+                    </div>
 
-                    <input className="radio"
-                           type="radio"
-                           name="payment"
-                           id="payment-paid"
-                           value={true}
-                           onChange={e => this.handleChange(e, 'payment')}/>
-                    <label className="label__payment"
-                           htmlFor="payment">Paid event</label>
+                    <div className="row__col-2 col-2__payment">
+                        <input className="radio"
+                               type="radio"
+                               name="payment"
+                               id="payment-free"
+                               value={false}
+                               onChange={e => this.handleChange(e, 'payment')} defaultChecked/>
+                        <label className="label__payment"
+                               htmlFor="payment">Free event</label>
 
-                    <span className={feeWrapperClass}>
-                        <input className={feeInputClass}
-                               type="text"
-                               id="fee"
-                               placeholder="Fee"
-                               value={this.props.state.fee}
-                               onChange={e => this.handleChange(e, 'fee')}/>
-                        <span className="success__info">$</span>
+                        <input className="radio"
+                               type="radio"
+                               name="payment"
+                               id="payment-paid"
+                               value={true}
+                               onChange={e => this.handleChange(e, 'payment')}/>
+                        <label className="label__payment"
+                               htmlFor="payment">Paid event</label>
 
-                        <span className={feeMsgClass}>
+                        {/*<span className={feeWrapperClass}>*/}
+                            <input className={feeInputClass}
+                                   type="text"
+                                   id="fee"
+                                   placeholder="Fee"
+                                   value={this.props.state.fee}
+                                   onChange={e => this.handleChange(e, 'fee')}/>
+                            <span className="success__info">$</span>
+                        {/*</span>*/}
+                    </div>
+
+                    <div className="row__col-3">
+                        <div className={feeMsgClass}>
                             Fee cannot be empty
                             <span className="caret">
                                 <i className="fa fa-caret-left" aria-hidden="true"></i>
                             </span>
-                        </span>
-                    </span>
+                        </div>
+                    </div>
+
+
+
                 </div>
 
                 <div className="section__row">
-                    <label className="label"
-                           htmlFor="reward">Reward</label>
-                    <input className="input-sm input-sm--about"
-                           type="text"
-                           id="reward"
-                           placeholder="Number"
-                           value={this.props.state.reward}
-                           onChange={e => this.handleChange(e, 'reward')}/>
-                    <span className="success__info">rewards points for attendance</span>
+                    <div className="row__col-1">
+                        <label className="label"
+                               htmlFor="reward">
+                            Reward
+                        </label>
+                    </div>
+
+                    <div className="row__col-2">
+                        <input className="input-sm input-sm--about"
+                               type="text"
+                               id="reward"
+                               placeholder="Number"
+                               value={this.props.state.reward}
+                               onChange={e => this.handleChange(e, 'reward')}/>
+                        <span className="success__info">rewards points for attendance</span>
+                    </div>
                 </div>
             </div>
         </div>

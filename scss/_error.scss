@@ -14,68 +14,36 @@
 .error-msg-descr,
 .error-msg-fee,
 .error-msg-date {
-  position: absolute;
-  display: inline-block;
+  position: relative;
+  //display: inline-block;
   font-size: 14px;
   background: $color-error;
   border-radius: 3px;
   color: $color-wh;
-  padding: 3px 9px;
+  padding: 6px 9px;
   font-weight: 100;
 
   .caret {
     position: absolute;
     color: $color-error;
-    transform: scale(1.2);
-  }
-}
-
-.error-msg-title {
-  width: 145px;
-  height: 25px;
-  top: 5px;
-  right: -157px;
-
-  .caret {
     left: -5px;
-    top: 5px;
-  }
-}
-
-.error-msg-descr {
-  width: 145px;
-  height: 56px;
-  top: 39px;
-  right: -157px;
-
-  .caret {
-    left: -5px;
-    top: 21px;
+    top: 50%;
+    transform: translateY(-50%) scale(1.2);
   }
 }
 
 .error-msg-fee {
-  width: 145px;
-  height: 25px;
-  top: 5px;
-  right: -298px;
-
-  .caret {
-    left: -5px;
-    top: 5px;
-  }
+  //width: 145px;
+  //height: 25px;
+  //top: 5px;
+  //right: -298px;
 }
 
 .error-msg-date {
-  width: 145px;
-  height: 55px;
-  top: -11px;
-  right: -399px;
-
-  .caret {
-    left: -5px;
-    top: 21px;
-  }
+  //width: 145px;
+  //height: 55px;
+  //top: -11px;
+  //right: -399px;
 }
 
 

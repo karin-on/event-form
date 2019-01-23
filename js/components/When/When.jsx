@@ -29,53 +29,68 @@ class When extends React.Component {
             <div className="section__content">
 
                 <div className="section__row">
-                    <label className={dateLabelClass}
-                           htmlFor="date">Starts on&nbsp;<span className="label-star">*</span></label>
-                    <span className="input-sm__wrapper">
+                    <div className="row__col-1">
+                        <label className={dateLabelClass}
+                               htmlFor="date">
+                            Starts on&nbsp;<span className="label-star">*</span>
+                        </label>
+                    </div>
+
+                    <div className="row__col-2 col-2__date">
                         <input className={dateInputClass}
                                type="date"
                                id="date"
                                required
                                onChange={e => this.handleChange(e, 'date')}/>
 
-                        <span className={dateMsgClass}>
+                        <span className="success__info">at</span>
+                        <input className="input-sm input-time"
+                               type="time"
+                               id="time" min="00:00" max="11:59"
+                               required
+                               onChange={e => this.handleChange(e, 'time')}/>
+
+                        <input className="radio {/*radio__time*/}"
+                               type="radio" name="time" id="am"
+                               value={false}
+                               onChange={e => this.handleChange(e, 'isPm')}
+                               defaultChecked/>
+                        <label className="label__time" htmlFor="am">AM</label>
+
+                        <input className="radio {/*radio__time*/}"
+                               type="radio" name="time" id="pm"
+                               value={true}
+                               onChange={e => this.handleChange(e, 'isPm')}/>
+                        <label className="label__time" htmlFor="pm">PM</label>
+                    </div>
+
+                    <div className="row__col-3">
+                        <div className={dateMsgClass}>
                             Date cannot be empty or prior to the actual date
                             <span className="caret">
                                 <i className="fa fa-caret-left" aria-hidden="true"></i>
                             </span>
-                        </span>
-                    </span>
+                        </div>
+                    </div>
 
-                    <span className="success__info">at</span>
-                    <input className="input-sm input-time"
-                           type="time"
-                           id="time" min="00:00" max="11:59"
-                           required
-                           onChange={e => this.handleChange(e, 'time')}/>
 
-                    <input className="radio {/*radio__time*/}"
-                           type="radio" name="time" id="am"
-                           value={false}
-                           onChange={e => this.handleChange(e, 'isPm')}
-                           defaultChecked/>
-                    <label className="label__time" htmlFor="am">AM</label>
 
-                    <input className="radio {/*radio__time*/}"
-                           type="radio" name="time" id="pm"
-                           value={true}
-                           onChange={e => this.handleChange(e, 'isPm')}/>
-                    <label className="label__time" htmlFor="pm">PM</label>
                 </div>
 
                 <div className="section__row">
-                    <label className="label" htmlFor="duration">Duration</label>
-                    <input className="input-sm"
-                           type="text"
-                           id="duration"
-                           placeholder="Number"
-                           value={this.props.duration}
-                           onChange={e => this.handleChange(e, 'duration')}/>
-                    <span className="success__info">hour</span>
+                    <div className="row__col-1">
+                        <label className="label" htmlFor="duration">Duration</label>
+                    </div>
+
+                    <div className="row__col-2">
+                        <input className="input-sm"
+                               type="text"
+                               id="duration"
+                               placeholder="Number"
+                               value={this.props.duration}
+                               onChange={e => this.handleChange(e, 'duration')}/>
+                        <span className="success__info">hour</span>
+                    </div>
                 </div>
 
             </div>

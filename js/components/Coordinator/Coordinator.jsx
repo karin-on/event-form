@@ -39,34 +39,42 @@ class Coordinator extends React.Component {
             <div className="section__content">
 
                 <div className="section__row">
-                    <label className="label" htmlFor="coordinator">
-                        Responsible&nbsp;<span className="label-star">*</span>
-                    </label>
+                    <div className="row__col-1">
+                        <label className="label" htmlFor="coordinator">
+                            Responsible&nbsp;<span className="label-star">*</span>
+                        </label>
+                    </div>
 
-                    <span className="custom-select">
-                        <select className="select coordinator"
-                                name="coordinator"
-                                id="coordinator"
-                                onChange={e => this.handleChange(e, 'coordinator')}>
-                            <optgroup label="Me">
-                                {employeesMeOption}
-                            </optgroup>
-                            <optgroup label="Others">
-                                {employeesOtherOptions}
-                            </optgroup>
-                        </select>
-                        <span className="custom-select__arrow">
-                            <i className="fa fa-caret-down fa-lg" aria-hidden="true"></i>
-                        </span>
-                    </span>
+                    <div className="row__col-2">
+                        <div className="custom-select">
+                            <select className="select coordinator"
+                                    name="coordinator"
+                                    id="coordinator"
+                                    onChange={e => this.handleChange(e, 'coordinator')}>
+                                <optgroup label="Me">
+                                    {employeesMeOption}
+                                </optgroup>
+                                <optgroup label="Others">
+                                    {employeesOtherOptions}
+                                </optgroup>
+                            </select>
+                            <span className="custom-select__arrow">
+                                <i className="fa fa-caret-down fa-lg" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="section__row">
-                    <label className="label" htmlFor="email">Email</label>
-                    <input className="input-lg input__read-only"
-                           type="email"
-                           id="email"
-                           value={email} readOnly/>
+                    <div className="row__col-1">
+                        <label className="label" htmlFor="email">Email</label>
+                    </div>
+                    <div className="row__col-2">
+                        <input className="input-lg input__read-only"
+                               type="email"
+                               id="email"
+                               value={email} readOnly/>
+                    </div>
                 </div>
 
             </div>
