@@ -22,12 +22,12 @@ class When extends React.Component {
                             'error-msg';
 
 
-        return <div className="form__section section__when">
+        return <div className="form__section">
             <div className="section__header">
                 <h2 className="section__title">When</h2>
             </div>
-            <div className="section__content">
 
+            <div className="section__content">
                 <div className="section__row">
                     <div className="row__col-1">
                         <label className={dateLabelClass}
@@ -72,9 +72,6 @@ class When extends React.Component {
                             </span>
                         </div>
                     </div>
-
-
-
                 </div>
 
                 <div className="section__row">
@@ -92,8 +89,8 @@ class When extends React.Component {
                         <span className="form-text">hour</span>
                     </div>
                 </div>
-
             </div>
+
         </div>
     }
 }

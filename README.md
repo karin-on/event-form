@@ -36,7 +36,7 @@ The project will be running in your browser at http://localhost:8080/.
 
 
 
-## Previes
+## Previews
 
 ![](./images/event-form_prev1.png)
 

@@ -32,12 +32,12 @@ class Coordinator extends React.Component {
         });
 
 
-        return <div className="form__section section__coordinator">
+        return <div className="form__section">
             <div className="section__header">
                 <h2 className="section__title">Coordinator</h2>
             </div>
-            <div className="section__content">
 
+            <div className="section__content">
                 <div className="section__row">
                     <div className="row__col-1">
                         <label className="label" htmlFor="coordinator">
@@ -76,8 +76,8 @@ class Coordinator extends React.Component {
                                value={email} readOnly/>
                     </div>
                 </div>
-
             </div>
+
         </div>
     }
 }

@@ -15,15 +15,6 @@
   padding: 20px 5%;
 }
 
-.section__about {
-}
-
-.section__coordinator {
-}
-
-.section__when {
-}
-
 .section__header {
   color: $color-header-bg;
   border-bottom: 1px solid rgba($color-bck, 0.15);
@@ -34,9 +25,6 @@
   font-weight: 100;
   margin-bottom: 10px;
   margin-top: 0;
-}
-
-.section__content {
 }
 
 .section__row {
@@ -68,7 +56,6 @@
   padding-left: 12px;
   align-self: center;
 }
-
 
 .section__row:last-child {
   margin-bottom: 0;

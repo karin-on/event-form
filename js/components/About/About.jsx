@@ -54,15 +54,13 @@ class About extends React.Component {
                                 'error-msg';
 
 
-        return <div className="form__section section__about">
+        return <div className="form__section">
             <div className="section__header">
                 <h2 className="section__title">About</h2>
             </div>
 
             <div className="section__content">
-
                 <div className="section__row">
-
                     <div className="row__col-1">
                         <label className={titleLabelClass}
                                htmlFor="title">
@@ -147,7 +145,6 @@ class About extends React.Component {
                             Describes topic and people who should be interested in this event
                         </span>
                     </div>
-
                 </div>
 
                 <div className="section__row row__payment">
@@ -195,9 +192,6 @@ class About extends React.Component {
                             </span>
                         </div>
                     </div>
-
-
-
                 </div>
 
                 <div className="section__row">
@@ -219,6 +213,7 @@ class About extends React.Component {
                     </div>
                 </div>
             </div>
+
         </div>
     }
 }
