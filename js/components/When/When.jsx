@@ -18,8 +18,8 @@ class When extends React.Component {
                             'input-sm input-date' :
                             'input-sm input-date error';
         let dateMsgClass = this.props.dateValid ?
-                            'error-msg-date display-none' :
-                            'error-msg-date';
+                            'error-msg display-none' :
+                            'error-msg';
 
 
         return <div className="form__section section__when">
@@ -43,7 +43,7 @@ class When extends React.Component {
                                required
                                onChange={e => this.handleChange(e, 'date')}/>
 
-                        <span className="success__info">at</span>
+                        <span className="form-text">at</span>
                         <input className="input-sm input-time"
                                type="time"
                                id="time" min="00:00" max="11:59"
@@ -89,7 +89,7 @@ class When extends React.Component {
                                placeholder="Number"
                                value={this.props.duration}
                                onChange={e => this.handleChange(e, 'duration')}/>
-                        <span className="success__info">hour</span>
+                        <span className="form-text">hour</span>
                     </div>
                 </div>
 

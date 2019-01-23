@@ -25,8 +25,8 @@ class About extends React.Component {
                             'input-lg' :
                             'input-lg error';
         const titleMsgClass = this.props.state.titleValid ?
-                            'error-msg-title display-none' :
-                            'error-msg-title';
+                            'error-msg display-none' :
+                            'error-msg';
 
         const descriptionLabelClass = this.props.state.descriptionValid ?
                                 'label label__description' :
@@ -50,8 +50,8 @@ class About extends React.Component {
                                 "input-sm input-sm--about" :
                                 "input-sm input-sm--about error";
         const feeMsgClass = this.props.state.feeValid ?
-                                'error-msg-fee display-none' :
-                                'error-msg-fee';
+                                'error-msg display-none' :
+                                'error-msg';
 
 
         return <div className="form__section section__about">
@@ -183,7 +183,7 @@ class About extends React.Component {
                                    placeholder="Fee"
                                    value={this.props.state.fee}
                                    onChange={e => this.handleChange(e, 'fee')}/>
-                            <span className="success__info">$</span>
+                            <span className="form-text">$</span>
                         {/*</span>*/}
                     </div>
 
@@ -215,7 +215,7 @@ class About extends React.Component {
                                placeholder="Number"
                                value={this.props.state.reward}
                                onChange={e => this.handleChange(e, 'reward')}/>
-                        <span className="success__info">rewards points for attendance</span>
+                        <span className="form-text">rewards points for attendance</span>
                     </div>
                 </div>
             </div>
