@@ -2,12 +2,12 @@
 
 .success {
   width: 100%;
-  height: 100px;
-  margin-bottom: 23px;
+  max-width: 802px;
+  margin: 0 auto;
   background: $color-success-bg;
   border-radius: 2px;
   box-shadow: 0 0 7px 1px rgba(black, 0.08);
-  padding: 20px 40px;
+  padding: 22px 40px;
 }
 
 .success__title {

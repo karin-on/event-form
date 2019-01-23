@@ -47,8 +47,8 @@ class About extends React.Component {
                                 "payment-title" :
                                 "payment-title error";
         const feeInputClass = this.props.state.feeValid ?
-                                "input-sm input-sm--about" :
-                                "input-sm input-sm--about error";
+                                "input-sm input-fee" :
+                                "input-sm input-fee error";
         const feeMsgClass = this.props.state.feeValid ?
                                 'error-msg display-none' :
                                 'error-msg';
@@ -176,7 +176,7 @@ class About extends React.Component {
                         <label className="label__payment"
                                htmlFor="payment">Paid event</label>
 
-                        {/*<span className={feeWrapperClass}>*/}
+                        <span className={feeWrapperClass}>
                             <input className={feeInputClass}
                                    type="text"
                                    id="fee"
@@ -184,7 +184,7 @@ class About extends React.Component {
                                    value={this.props.state.fee}
                                    onChange={e => this.handleChange(e, 'fee')}/>
                             <span className="form-text">$</span>
-                        {/*</span>*/}
+                        </span>
                     </div>
 
                     <div className="row__col-3">
