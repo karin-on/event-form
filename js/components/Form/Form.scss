@@ -106,6 +106,8 @@
   padding: 0 12px;
   color: rgba($color-bck, 0.5);
   font-size: 16px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 
   &::placeholder {
     font-size: 15px;
@@ -230,6 +232,8 @@
   margin-right: 10px;
   color: rgba($color-bck, 0.2);
   font-size: 16px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 
   &::placeholder {
     font-size: 15px;
