@@ -155,23 +155,27 @@ class About extends React.Component {
                     </div>
 
                     <div className="row__col-2 col-2__payment">
-                        <input className="radio"
-                               type="radio"
-                               name="payment"
-                               id="payment-free"
-                               value={false}
-                               onChange={e => this.handleChange(e, 'payment')} defaultChecked/>
                         <label className="label__payment"
-                               htmlFor="payment">Free event</label>
+                               htmlFor="payment-free">Free event
+                            <input className="radio"
+                                   type="radio"
+                                   name="payment"
+                                   id="payment-free"
+                                   value={false}
+                                   onChange={e => this.handleChange(e, 'payment')} defaultChecked/>
+                            <span className="custom-radio"></span>
+                        </label>
 
-                        <input className="radio"
-                               type="radio"
-                               name="payment"
-                               id="payment-paid"
-                               value={true}
-                               onChange={e => this.handleChange(e, 'payment')}/>
                         <label className="label__payment"
-                               htmlFor="payment">Paid event</label>
+                               htmlFor="payment-paid">Paid event
+                            <input className="radio"
+                                   type="radio"
+                                   name="payment"
+                                   id="payment-paid"
+                                   value={true}
+                                   onChange={e => this.handleChange(e, 'payment')}/>
+                            <span className="custom-radio"></span>
+                        </label>
 
                         <span className={feeWrapperClass}>
                             <input className={feeInputClass}

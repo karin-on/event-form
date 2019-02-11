@@ -93,9 +93,11 @@
 
 .label__payment,
 .label__time {
-  margin: 0 12px;
   color: rgba($color-bck, 0.5);
   font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  padding-left: 23px;
 }
 
 .input-lg {
@@ -181,46 +183,23 @@
 
 .radio {
   cursor: pointer;
-  position: relative;
-  width: 6px;
-  height: 6px;
-  margin: 0 3px;
+  opacity: 0;
+}
 
-  &:before {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-28%, -40%);
-    width: 7px;
-    height: 7px;
-    border: 1px solid $color-label;
-    border-radius: 50%;
-    background: $color-label;
-    opacity: 0;
-    z-index: 1;
-  }
+.custom-radio {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border: 1px solid $color-label;
+  border-radius: 50%;
+}
 
-  &:after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-38%, -45%);
-    width: 14px;
-    height: 14px;
-    border: 1px solid $color-label;
-    border-radius: 50%;
-    background: $color-wh;
-  }
-
-  &:checked {
-    &:before {
-      opacity: 1;
-    }
-  }
+.radio:checked ~.custom-radio {
+  background-color: $color-label;
+  box-shadow: 0 0 0 3px $color-wh inset;
 }
 
 .input-sm {
