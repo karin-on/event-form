@@ -425,9 +425,11 @@ body {
 
 .label__payment,
 .label__time {
-  margin: 0 12px;
   color: rgba(0, 0, 0, 0.5);
-  font-size: 16px; }
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  padding-left: 23px; }
 
 .input-lg {
   width: 100%;
@@ -510,40 +512,23 @@ body {
 
 .radio {
   cursor: pointer;
-  position: relative;
-  width: 6px;
-  height: 6px;
-  margin: 0 3px; }
-  .radio:before {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-28%, -40%);
-            transform: translate(-28%, -40%);
-    width: 7px;
-    height: 7px;
-    border: 1px solid #9fb2cd;
-    border-radius: 50%;
-    background: #9fb2cd;
-    opacity: 0;
-    z-index: 1; }
-  .radio:after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-38%, -45%);
-            transform: translate(-38%, -45%);
-    width: 14px;
-    height: 14px;
-    border: 1px solid #9fb2cd;
-    border-radius: 50%;
-    background: #ffffff; }
-  .radio:checked:before {
-    opacity: 1; }
+  opacity: 0; }
+
+.custom-radio {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #9fb2cd;
+  border-radius: 50%; }
+
+.radio:checked ~ .custom-radio {
+  background-color: #9fb2cd;
+  -webkit-box-shadow: 0 0 0 3px #ffffff inset;
+          box-shadow: 0 0 0 3px #ffffff inset; }
 
 .input-sm {
   width: 18%;
