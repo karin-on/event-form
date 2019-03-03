@@ -35,7 +35,13 @@ class Form extends React.Component {
                 [element]: value
             });
 
-        } else {
+        }
+        else if (element === 'category') {
+            this.setState({
+                [element]: e
+            });
+        }
+        else {
             this.setState({
                 [element]: e.target.value
             });
@@ -71,7 +77,7 @@ class Form extends React.Component {
     createEvent = () => {
         let category_id = this.state.category === '' ?
                         null :
-                        parseInt(this.state.category);
+                        this.state.category;
         let event_fee = !JSON.parse(this.state.payment) ?
                         0 :
                         parseInt(this.state.fee);

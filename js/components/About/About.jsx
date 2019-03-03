@@ -3,6 +3,13 @@ import React from "react";
 import categories from "../../../data/categories";
 
 class About extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            isDropdownOpen: false,
+            chosenOptionID: null
+        }
+    }
 
     handleChange = (e, element) => {
         if (typeof this.props.handleFormChange === 'function') {
@@ -10,11 +17,42 @@ class About extends React.Component {
         }
     };
 
-    render() {
+    toggleDropdown = () => {
+        this.setState({
+            isDropdownOpen: !this.state.isDropdownOpen
+        })
+    };
 
+    handleOptionClick = (e) => {
+        const value = e.target.getAttribute('value') === null ?
+                        null :
+                        parseInt(e.target.getAttribute('value'));
+
+        this.setState({
+            isDropdownOpen: false,
+            chosenOptionID: value
+        });
+
+        if (typeof this.props.handleFormChange === 'function') {
+            this.props.handleFormChange(value, 'category');
+        }
+    };
+
+
+    render() {
         const descrLength = this.props.state.description.length;
+
+        const chosenOption = this.state.chosenOptionID !== null && this.state.chosenOptionID >= 0 ?
+                            categories[this.state.chosenOptionID].name :
+                            'Select category (skills, interests, locations)';
+
         const categoriesOptions = categories.map(el => {
-            return <option value={el.id} key={el.id}>{el.name}</option>
+            return <li className="dropdown__option"
+                       value={el.id}
+                       key={el.id}
+                       onClick={this.handleOptionClick}>
+                {el.name}
+            </li>
         });
 
 
@@ -128,15 +166,38 @@ class About extends React.Component {
 
                     <div className="row__col-2">
                         <div className="dropdown__container">
-                            <select className="select"
-                                    name="category"
-                                    id="category"
-                                    value={this.props.state.category}
-                                    onChange={e => this.handleChange(e, 'category')}>
+                            <div className="dropdown__chosen-option"
+                                 onBlur={this.toggleDropdown}
+                                 onFocus={this.toggleDropdown}
+                                 tabIndex="0">
+                                {chosenOption}
+                            </div>
 
-                            <option>Select category (skills, interests, locations)</option>
-                            {categoriesOptions}
-                            </select>
+                            {this.state.isDropdownOpen ?
+                            <div className="dropdown__list-container">
+                                <ul className="dropdown__list">
+                                    <li className="dropdown__option"
+                                        value={null}
+                                        onClick={this.handleOptionClick}>
+                                        Select category (skills, interests, locations)
+                                    </li>
+                                    {categoriesOptions}
+                                </ul>
+                            </div>
+                                : null}
+
+
+
+                            {/*<select className="select"*/}
+                                    {/*name="category"*/}
+                                    {/*id="category"*/}
+                                    {/*value={this.props.state.category}*/}
+                                    {/*onChange={e => this.handleChange(e, 'category')}>*/}
+
+                                {/*<option>Select category (skills, interests, locations)</option>*/}
+                                {/*{categoriesOptions}*/}
+                            {/*</select>*/}
+
                             <span className="dropdown__arrow">
                                 <i className="fa fa-caret-down fa-lg" aria-hidden="true"></i>
                             </span>

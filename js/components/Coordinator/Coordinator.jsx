@@ -25,8 +25,6 @@ class Coordinator extends React.Component {
     };
 
     handleOptionClick = (e) => {
-        console.log(e.target.value);
-
         this.setState({
             isDropdownOpen: false,
             chosenOptionID: e.target.value
@@ -38,44 +36,29 @@ class Coordinator extends React.Component {
     };
 
     render() {
-        let loggedInId = this.props.loggedInId;
-        let email = employees[this.props.coordinator].email;
+        const loggedInId = this.props.loggedInId;
+        const email = employees[this.props.coordinator].email;
 
         // let employeesMeOption = <option value={employees[loggedInId].id}
         //                                 key={employees[loggedInId].id}>
         //                                 {employees[loggedInId].name}&nbsp;{employees[loggedInId].lastname}
         //                                 </option>
 
-        let meOption = employees[loggedInId].name +
+        const meOption = employees[loggedInId].name +
             ' ' +
             employees[loggedInId].lastname;
 
-        let chosenOption = employees[this.state.chosenOptionID].name +
+        const chosenOption = employees[this.state.chosenOptionID].name +
                             ' ' +
                             employees[this.state.chosenOptionID].lastname;
 
-        let employeesOtherOptions = [];
-
-        // employees.forEach(el => {
-        //     if (el.id != loggedInId) {
-        //         let opt = <option value={el.id}
-        //                           key={el.id}>
-        //                           {el.name} {el.lastname}
-        //                           </option>
-        //         employeesOtherOptions.push(opt);
-        //     }
-        // });
-
-        employees.forEach(el => {
-            if (el.id != loggedInId) {
-                let opt = <li className="dropdown__option"
-                              value={el.id}
-                              key={el.id}
-                              onClick={e => this.handleOptionClick(e)}>
-                    {el.name} {el.lastname}
-                </li>
-                employeesOtherOptions.push(opt);
-            }
+        const employeesOtherOptions = employees.filter(el => el.id != loggedInId).map(el => {
+            return <li className="dropdown__option"
+                       value={el.id}
+                       key={el.id}
+                       onClick={e => this.handleOptionClick(e)}>
+                {el.name} {el.lastname}
+            </li>
         });
 
 
@@ -94,7 +77,6 @@ class Coordinator extends React.Component {
 
                     <div className="row__col-2">
                         <div className="dropdown__container">
-
                             <div className="dropdown__chosen-option coordinator"
                                  onClick={this.handleDropdownClick}>
                                 {chosenOption}
@@ -113,19 +95,6 @@ class Coordinator extends React.Component {
                                 </ul>
                             </div>
                                 : null}
-
-
-                            {/*<select className="select coordinator"*/}
-                                    {/*name="coordinator"*/}
-                                    {/*id="coordinator"*/}
-                                    {/*onChange={e => this.handleChange(e, 'coordinator')}>*/}
-                                {/*<optgroup label="Me">*/}
-                                    {/*{employeesMeOption}*/}
-                                {/*</optgroup>*/}
-                                {/*<optgroup label="Others">*/}
-                                    {/*{employeesOtherOptions}*/}
-                                {/*</optgroup>*/}
-                            {/*</select>*/}
 
                             <span className="dropdown__arrow">
                                 <i className="fa fa-caret-down fa-lg" aria-hidden="true"></i>
