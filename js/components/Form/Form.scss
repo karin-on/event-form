@@ -117,7 +117,7 @@
   }
 }
 
-.custom-select {
+.custom-dropdown {
   height: 34px;
   border: 1px solid rgba($color-bck, 0.15);
   border-radius: 2px;
@@ -140,7 +140,7 @@
     }
   }
 
-  .custom-select__arrow {
+  .custom-dropdown__arrow {
     position: absolute;
     top: 50%;
     right: 12px;
