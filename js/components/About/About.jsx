@@ -127,7 +127,7 @@ class About extends React.Component {
                     </div>
 
                     <div className="row__col-2">
-                        <div className="custom-dropdown">
+                        <div className="dropdown__container">
                             <select className="select"
                                     name="category"
                                     id="category"
@@ -137,7 +137,7 @@ class About extends React.Component {
                             <option>Select category (skills, interests, locations)</option>
                             {categoriesOptions}
                             </select>
-                            <span className="custom-dropdown__arrow">
+                            <span className="dropdown__arrow">
                                 <i className="fa fa-caret-down fa-lg" aria-hidden="true"></i>
                             </span>
                         </div>

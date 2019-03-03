@@ -68,8 +68,10 @@ class Coordinator extends React.Component {
 
         employees.forEach(el => {
             if (el.id != loggedInId) {
-                let opt = <li value={el.id}
-                                  key={el.id} onClick={e => this.handleOptionClick(e)}>
+                let opt = <li className="dropdown__option"
+                              value={el.id}
+                              key={el.id}
+                              onClick={e => this.handleOptionClick(e)}>
                     {el.name} {el.lastname}
                 </li>
                 employeesOtherOptions.push(opt);
@@ -91,19 +93,26 @@ class Coordinator extends React.Component {
                     </div>
 
                     <div className="row__col-2">
-                        <div className="custom-dropdown">
+                        <div className="dropdown__container">
 
-                            <div onClick={this.handleDropdownClick}>{chosenOption}</div>
+                            <div className="dropdown__chosen-option coordinator"
+                                 onClick={this.handleDropdownClick}>
+                                {chosenOption}
+                            </div>
 
-                            {this.state.isDropdownOpen ? <div>
-                                <h6>Me</h6>
-                                <p>{meOption}</p>
+                            {this.state.isDropdownOpen ?
+                            <div className="dropdown__list-container">
+                                <h6 className="dropdown__group-heading">Me</h6>
+                                <ul className="dropdown__list">
+                                    <li className="dropdown__option">{meOption}</li>
+                                </ul>
 
-                                <h6>Others</h6>
-                                <ul>
+                                <h6 className="dropdown__group-heading">Others</h6>
+                                <ul className="dropdown__list">
                                     {employeesOtherOptions}
                                 </ul>
-                            </div> : null}
+                            </div>
+                                : null}
 
 
                             {/*<select className="select coordinator"*/}
@@ -118,7 +127,7 @@ class Coordinator extends React.Component {
                                 {/*</optgroup>*/}
                             {/*</select>*/}
 
-                            <span className="custom-dropdown__arrow">
+                            <span className="dropdown__arrow">
                                 <i className="fa fa-caret-down fa-lg" aria-hidden="true"></i>
                             </span>
                         </div>
