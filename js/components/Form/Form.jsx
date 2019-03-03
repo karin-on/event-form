@@ -8,7 +8,7 @@ import employees from "../../../data/employees";
 class Form extends React.Component {
     constructor(props) {
         super(props);
-        this.loggedInId = '2';
+        this.loggedInId = 2;
         this.state={
             title: '',
             description: '',
@@ -81,7 +81,7 @@ class Form extends React.Component {
         let duration = this.state.duration === '' ?
                         0 :
                         parseInt(this.state.duration, 10) * 3600;
-        let id = this.state.coordinator;
+        let id = this.state.coordinator.toString();
 
         return ({
             title: this.state.title,
