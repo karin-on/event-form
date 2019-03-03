@@ -1,4 +1,4 @@
-Event form
+# Event Form
 
 This is a form on an imaginary social networking platform. Its users can create events, assing them to one of given categories and reward attendants with points they can collect.
 
