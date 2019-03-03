@@ -64,8 +64,8 @@ class Coordinator extends React.Component {
                     </div>
 
                     <div className="row__col-2">
-                        <div className="dropdown__container">
-                            <div className="dropdown__chosen-option coordinator"
+                        <div className="dropdown__container coordinator">
+                            <div className="dropdown__chosen-option"
                                  onClick={this.toggleDropdown}>
                                 {chosenOption}
                             </div>
