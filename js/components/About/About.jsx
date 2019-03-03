@@ -167,9 +167,7 @@ class About extends React.Component {
                     <div className="row__col-2">
                         <div className="dropdown__container">
                             <div className="dropdown__chosen-option"
-                                 onBlur={this.toggleDropdown}
-                                 onFocus={this.toggleDropdown}
-                                 tabIndex="0">
+                                 onClick={this.toggleDropdown}>
                                 {chosenOption}
                             </div>
 
@@ -185,18 +183,6 @@ class About extends React.Component {
                                 </ul>
                             </div>
                                 : null}
-
-
-
-                            {/*<select className="select"*/}
-                                    {/*name="category"*/}
-                                    {/*id="category"*/}
-                                    {/*value={this.props.state.category}*/}
-                                    {/*onChange={e => this.handleChange(e, 'category')}>*/}
-
-                                {/*<option>Select category (skills, interests, locations)</option>*/}
-                                {/*{categoriesOptions}*/}
-                            {/*</select>*/}
 
                             <span className="dropdown__arrow">
                                 <i className="fa fa-caret-down fa-lg" aria-hidden="true"></i>

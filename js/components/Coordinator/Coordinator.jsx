@@ -5,20 +5,13 @@ import employees from "../../../data/employees";
 class Coordinator extends React.Component {
     constructor(props) {
         super(props);
-        // this.loggedInId = this.props.loggedInId;
         this.state={
             isDropdownOpen: false,
             chosenOptionID: this.props.loggedInId
         }
     }
 
-    // handleChange = (e, element) => {
-    //     if (typeof this.props.handleFormChange === 'function') {
-    //         this.props.handleFormChange(e, element);
-    //     }
-    // };
-
-    handleDropdownClick = () => {
+    toggleDropdown = () => {
         this.setState({
             isDropdownOpen: !this.state.isDropdownOpen
         })
@@ -38,11 +31,6 @@ class Coordinator extends React.Component {
     render() {
         const loggedInId = this.props.loggedInId;
         const email = employees[this.props.coordinator].email;
-
-        // let employeesMeOption = <option value={employees[loggedInId].id}
-        //                                 key={employees[loggedInId].id}>
-        //                                 {employees[loggedInId].name}&nbsp;{employees[loggedInId].lastname}
-        //                                 </option>
 
         const meOption = employees[loggedInId].name +
             ' ' +
@@ -78,7 +66,7 @@ class Coordinator extends React.Component {
                     <div className="row__col-2">
                         <div className="dropdown__container">
                             <div className="dropdown__chosen-option coordinator"
-                                 onClick={this.handleDropdownClick}>
+                                 onClick={this.toggleDropdown}>
                                 {chosenOption}
                             </div>
 
@@ -86,7 +74,11 @@ class Coordinator extends React.Component {
                             <div className="dropdown__list-container">
                                 <h6 className="dropdown__group-heading">Me</h6>
                                 <ul className="dropdown__list">
-                                    <li className="dropdown__option">{meOption}</li>
+                                    <li className="dropdown__option"
+                                        value={loggedInId}
+                                        onClick={e => this.handleOptionClick(e)}>
+                                        {meOption}
+                                    </li>
                                 </ul>
 
                                 <h6 className="dropdown__group-heading">Others</h6>
