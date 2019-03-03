@@ -1,4 +1,4 @@
-# Event form
+Event form
 
 This is a form on an imaginary social networking platform. Its users can create events, assing them to one of given categories and reward attendants with points they can collect.
 
@@ -64,6 +64,8 @@ The project will be running in your browser at http://localhost:8080/.
 }
 ```
 
+- The form has custom drop-down lists instead of default HTML select elements (work in progress).
+
 
 
 ## Previews
@@ -77,3 +79,7 @@ The project will be running in your browser at http://localhost:8080/.
 
 
 ![](./images/event-form_prev3.png)
+
+
+
+![](./images/event-form_prev4.png)
