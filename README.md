@@ -46,6 +46,7 @@ The project will be running in your browser at http://localhost:8080/.
 - It’s impossible to create an event prior to the actual date and the starting time must be provided in 12 hour format. On the output date and time are formatted as `YYYY-MM-DDTHH:mm` (time in 24 hour format).
 - Fields `fee`, `reward` and `duration` accept only digits.
 - After submiting data and successful validation the form closes and **Success** information appears. All the data from the form is displayed in a console as an object:
+- The form has custom drop-down lists instead of default HTML select elements.
 
 ```js
 {
@@ -63,8 +64,6 @@ The project will be running in your browser at http://localhost:8080/.
   },
 }
 ```
-
-- The form has custom drop-down lists instead of default HTML select elements (work in progress).
 
 
 
