@@ -17,6 +17,12 @@ class Coordinator extends React.Component {
         })
     };
 
+    handleBlur = () => {
+        this.setState({
+            isDropdownOpen: false
+        })
+    };
+
     handleOptionClick = (e) => {
         this.setState({
             isDropdownOpen: false,
@@ -64,9 +70,11 @@ class Coordinator extends React.Component {
                     </div>
 
                     <div className="row__col-2">
-                        <div className="dropdown__container coordinator">
-                            <div className="dropdown__chosen-option"
-                                 onClick={this.toggleDropdown}>
+                        <div className="dropdown__container coordinator"
+                             onClick={this.toggleDropdown}
+                             onBlur={this.handleBlur} tabIndex="0">
+
+                            <div className="dropdown__chosen-option">
                                 {chosenOption}
                             </div>
 

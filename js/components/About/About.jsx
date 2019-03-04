@@ -23,6 +23,12 @@ class About extends React.Component {
         })
     };
 
+    handleBlur = () => {
+        this.setState({
+            isDropdownOpen: false
+        })
+    };
+
     handleOptionClick = (e) => {
         const value = e.target.getAttribute('value') === null ?
                         null :
@@ -165,9 +171,12 @@ class About extends React.Component {
                     </div>
 
                     <div className="row__col-2">
-                        <div className="dropdown__container">
-                            <div className="dropdown__chosen-option"
-                                 onClick={this.toggleDropdown}>
+                        <div className="dropdown__container"
+                             onClick={this.toggleDropdown}
+                             onBlur={this.handleBlur}
+                             tabIndex="1">
+                            
+                            <div className="dropdown__chosen-option">
                                 {chosenOption}
                             </div>
 
