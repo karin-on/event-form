@@ -174,8 +174,8 @@ class About extends React.Component {
                         <div className="dropdown__container"
                              onClick={this.toggleDropdown}
                              onBlur={this.handleBlur}
-                             tabIndex="1">
-                            
+                             tabIndex="0">
+
                             <div className="dropdown__chosen-option">
                                 {chosenOption}
                             </div>
